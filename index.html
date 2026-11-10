@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tokyo Pocket — Good Taste Fits Right Here.</title>
+<meta name="description" content="Tokyo Pocket — a vibrant Japanese café experience, folded into one delicious, portable bite. Fresh flavor travels with you.">
+
+<!-- === PRELOAD FONTS === -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Montserrat:wght@400;500;600;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Montserrat:wght@400;500;600;800&display=swap">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- === CUSTOM CURSOR (desktop) === -->
+<div class="cursor" aria-hidden="true"><span class="cursor__label"></span></div>
+
+<!-- === SKIP LINK === -->
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- === SCROLL PROGRESS + NAVBAR === -->
+<div class="progress" aria-hidden="true"><span class="progress__bar" id="progressBar"></span></div>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__logo" href="#hero" aria-label="Tokyo Pocket — back to top">
+      <img src="assets/logo/primary.png" alt="Tokyo Pocket logo" width="132" height="44">
+    </a>
+
+    <button class="nav__burger" id="navBurger" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav__menu" id="navMenu" aria-label="Primary">
+      <a href="#concept" class="nav__link">Concept</a>
+      <a href="#owners" class="nav__link">Owners</a>
+      <a href="#products" class="nav__link">Products</a>
+      <a href="#logo" class="nav__link">Logo</a>
+      <a href="#brandpost" class="nav__link">Brand Post</a>
+      <a href="#poster" class="nav__link">Poster</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================================================
+     3.1 HERO
+     ============================================================ -->
+<section class="hero" id="hero" aria-labelledby="heroTitle">
+
+  <!-- drifting decorative layers -->
+  <div class="hero__deco" aria-hidden="true">
+    <span class="petal" data-depth="0.10" style="--x:8%;  --d:0s;   --s:.9"></span>
+    <span class="petal" data-depth="0.22" style="--x:22%; --d:2.4s; --s:.6"></span>
+    <span class="petal" data-depth="0.14" style="--x:38%; --d:5.1s; --s:1.1"></span>
+    <span class="petal" data-depth="0.30" style="--x:57%; --d:1.2s; --s:.7"></span>
+    <span class="petal" data-depth="0.18" style="--x:71%; --d:3.8s; --s:1"></span>
+    <span class="petal" data-depth="0.26" style="--x:86%; --d:6.3s; --s:.8"></span>
+    <span class="petal" data-depth="0.12" style="--x:93%; --d:4.5s; --s:.55"></span>
+    <span class="sando-icon" data-depth="0.34" style="--x:12%; --y:64%; --d:0s"></span>
+    <span class="sando-icon" data-depth="0.42" style="--x:84%; --y:28%; --d:2s"></span>
+  </div>
+
+  <div class="hero__inner">
+    <p class="hero__badge" data-reveal="fade">
+      <span class="hanko" aria-hidden="true">東京</span>
+      <span>Filipino-made · Tokyo-inspired sandos</span>
+    </p>
+
+    <h1 class="hero__title" id="heroTitle" data-split>
+      <span class="line"><span class="line__in">Welcome to Tokyo,</span></span>
+      <span class="line"><span class="line__in">in your <em class="font-rushk accent">pocket</em>.</span></span>
+    </h1>
+
+    <p class="hero__sub" data-reveal="up">A vibrant Japanese café experience, folded into one delicious,
+      portable bite. Fresh flavor travels with you.</p>
+
+    <div class="hero__cta" data-stagger data-reveal="up">
+      <a class="btn btn--primary" href="#owners">Meet the Team</a>
+      <a class="btn btn--ghost" href="#products">See the Menu</a>
+    </div>
+
+    <figure class="hero__brand" data-reveal="scale">
+      <img src="assets/logo/secondary.png" alt="Tokyo Pocket — Good Taste Fits Right Here." width="360" height="180" loading="lazy">
+      <figcaption class="hero__tagline">“Good Taste Fits Right Here.”</figcaption>
+    </figure>
+  </div>
+
+  <!-- floating sandwich illustration -->
+  <div class="hero__sando" aria-hidden="true" data-float>
+    <svg viewBox="0 0 220 170" role="presentation">
+      <g class="hs hs--top">
+        <path d="M18 74c0-24 20-40 92-40s92 16 92 40v10H18z" fill="#F3D9AE"/>
+        <path d="M18 74c0-24 20-40 92-40s92 16 92 40" fill="none" stroke="#E0BC85" stroke-width="5"/>
+      </g>
+      <g class="hs hs--cream">
+        <path d="M22 92c14-8 30 6 46-2s28 6 44-2 30 6 46-2 26 4 40-2v18H22z" fill="#FFFDF7"/>
+      </g>
+      <g class="hs hs--fruit">
+        <ellipse cx="70" cy="112" rx="15" ry="12" fill="#E8455C"/>
+        <ellipse cx="112" cy="114" rx="13" ry="11" fill="#7CB342"/>
+        <ellipse cx="152" cy="112" rx="14" ry="12" fill="#FFB300"/>
+      </g>
+      <g class="hs hs--bottom">
+        <path d="M18 124h184v14c0 12-16 20-92 20s-92-8-92-20z" fill="#F3D9AE"/>
+        <path d="M18 138c0 12 16 20 92 20s92-8 92-20" fill="none" stroke="#E0BC85" stroke-width="5"/>
+      </g>
+    </svg>
+  </div>
+
+  <a class="hero__scroll" href="#concept" aria-label="Scroll to Business Concept">
+    <span>Scroll</span><i aria-hidden="true"></i>
+  </a>
+
+  <span class="microtext microtext--hero" aria-hidden="true">食パン</span>
+</section>
+
+<!-- divider -->
+<div class="divider" aria-hidden="true">
+  <svg viewBox="0 0 1440 90" preserveAspectRatio="none" data-parallax="0.15">
+    <path d="M0 46c120 26 240 34 360 22s240-46 360-42 240 40 360 46 240-2 360-24v42H0z" fill="var(--cream)"/>
+  </svg>
+</div>
+
+<!-- ============================================================
+     3.2 BUSINESS CONCEPT (PT#1)
+     ============================================================ -->
+<section class="concept" id="concept" aria-labelledby="conceptTitle">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow" data-reveal="up">Performance Task #1</p>
+      <h2 class="sec-title" id="conceptTitle" data-reveal="up">Business <em class="font-rushk">Concept</em></h2>
+    </header>
+
+    <!-- 1. NAME & TAGLINE -->
+    <div class="name-reveal" data-reveal="fade">
+      <div class="name-reveal__words" aria-hidden="true">
+        <span class="word word--tokyo" data-slide="left">TOKYO</span>
+        <span class="word word--pocket" data-slide="right">POCKET</span>
+      </div>
+      <h3 class="sr-only">Tokyo Pocket — name and tagline</h3>
+      <p class="name-reveal__copy">
+        <strong>“Tokyo”</strong> — the cultural heart of Japanese cuisine and innovation.
+        <strong>“Pocket”</strong> — the compact yet richly filled nature of a Japanese sandwich.
+      </p>
+      <blockquote class="big-quote" data-reveal="up">“Good Taste Fits Right Here.”</blockquote>
+    </div>
+
+    <!-- 2. HISTORY / BRAND STORY -->
+    <div class="story">
+      <h3 class="sub-title" data-reveal="up">The Story</h3>
+
+      <div class="timeline" id="timeline">
+        <svg class="timeline__line" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
+          <path id="timelinePath" d="M40 30 H960" fill="none" stroke="var(--red)" stroke-width="4"
+                stroke-linecap="round" stroke-dasharray="10 14"/>
+        </svg>
+
+        <ol class="timeline__steps" data-stagger>
+          <li class="step" data-reveal="up">
+            <span class="step__dot" aria-hidden="true">01</span>
+            <h4>Friends</h4>
+            <p>A group who loved Japanese sandwich culture.</p>
+          </li>
+          <li class="step" data-reveal="up">
+            <span class="step__dot" aria-hidden="true">02</span>
+            <h4>Weekend Experiments</h4>
+            <p>Recipes tested at home — soft milk bread, carefully chosen fillings.</p>
+          </li>
+          <li class="step" data-reveal="up">
+            <span class="step__dot" aria-hidden="true">03</span>
+            <h4>Creation</h4>
+            <p>Experiments became a brand built on quality and sincerity.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- 3. MISSION & VISION -->
+    <div class="mv" data-stagger>
+      <article class="mv__card mv__card--mission" data-reveal="left">
+        <span class="mv__jp" aria-hidden="true">使命</span>
+        <h3>Mission</h3>
+        <p>To deliver a premium and authentic Tokyo-style sandwich experience to every Filipino
+          food lover, honoring the craftsmanship, simplicity, and quality that Japanese cuisine
+          stands for, one carefully crafted sandwich at a time.</p>
+      </article>
+
+      <article class="mv__card mv__card--vision" data-reveal="right">
+        <span class="mv__jp" aria-hidden="true">展望</span>
+        <h3>Vision</h3>
+        <p>To become the most trusted and beloved Japanese sandwich brand in the Philippines,
+          bringing the warmth and spirit of Tokyo’s street food culture closer to every Filipino
+          food lover, one pocket at a time.</p>
+      </article>
+    </div>
+
+    <!-- 4. WHO WE SERVE -->
+    <div class="serve" data-stagger>
+      <h3 class="sub-title sub-title--sm" data-reveal="up">Who we serve</h3>
+      <ul class="chips">
+        <li class="chip" data-reveal="up">
+          <b><span data-count="13">0</span>–<span data-count="18">0</span></b> Snack seekers
+        </li>
+        <li class="chip" data-reveal="up">
+          <b><span data-count="18">0</span>–<span data-count="25">0</span></b> Trend followers
+        </li>
+        <li class="chip" data-reveal="up">
+          <b><span data-count="25">0</span>–<span data-count="35">0</span></b> Foodies / busy adults
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <span class="microtext microtext--side" aria-hidden="true">東京ポケット</span>
+</section>
+
+<!-- ============================================================
+     3.3 THE OWNERS — SHOJI DOOR HOVER
+     ============================================================ -->
+<section class="owners" id="owners" aria-labelledby="ownersTitle">
+  <div class="owners__wall" data-parallax-bg aria-hidden="true"></div>
+
+  <div class="wrap">
+    <header class="sec-head sec-head--light">
+      <p class="eyebrow" data-reveal="up">The Owners <span class="jp">友</span></p>
+      <h2 class="sec-title" id="ownersTitle" data-reveal="up">Meet the Friends <em class="font-rushk">Behind the Pocket</em></h2>
+      <p class="sec-hint" data-reveal="fade">Hover, tap or press Enter to slide the shoji open.</p>
+    </header>
+
+    <div class="doors" data-stagger>
+
+      <!-- 1 -->
+      <button class="door" type="button" aria-expanded="false" data-reveal="up" data-cursor="Open">
+        <span class="door__back">
+          <span class="door__photo" aria-hidden="true"><span class="initials">BD</span></span>
+          <span class="door__meta">
+            <span class="door__name">Brandon Jake Dela Cruz</span>
+            <span class="door__role">Co-Founder</span>
+          </span>
+        </span>
+        <span class="door__panel door__panel--l" aria-hidden="true">
+          <span class="door__tag">Brandon Jake</span>
+        </span>
+        <span class="door__panel door__panel--r" aria-hidden="true"></span>
+        <span class="door__frame" aria-hidden="true"></span>
+      </button>
+
+      <!-- 2 -->
+      <button class="door" type="button" aria-expanded="false" data-reveal="up" data-cursor="Open">
+        <span class="door__back">
+          <span class="door__photo" aria-hidden="true"><span class="initials">WF</span></span>
+          <span class="door__meta">
+            <span class="door__name">Winston Francisco</span>
+            <span class="door__role">Co-Founder</span>
+          </span>
+        </span>
+        <span class="door__panel door__panel--l" aria-hidden="true">
+          <span class="door__tag">Winston</span>
+        </span>
+        <span class="door__panel door__panel--r" aria-hidden="true"></span>
+        <span class="door__frame" aria-hidden="true"></span>
+      </button>
+
+      <!-- 3 -->
+      <button class="door" type="button" aria-expanded="false" data-reveal="up" data-cursor="Open">
+        <span class="door__back">
+          <span class="door__photo" aria-hidden="true"><span class="initials">AM</span></span>
+          <span class="door__meta">
+            <span class="door__name">Ana Leah Marcelo</span>
+            <span class="door__role">Co-Founder</span>
+          </span>
+        </span>
+        <span class="door__panel door__panel--l" aria-hidden="true">
+          <span class="door__tag">Ana Leah</span>
+        </span>
+        <span class="door__panel door__panel--r" aria-hidden="true"></span>
+        <span class="door__frame" aria-hidden="true"></span>
+      </button>
+
+      <!-- 4 -->
+      <button class="door" type="button" aria-expanded="false" data-reveal="up" data-cursor="Open">
+        <span class="door__back">
+          <span class="door__photo" aria-hidden="true"><span class="initials">JO</span></span>
+          <span class="door__meta">
+            <span class="door__name">Jose Olinares</span>
+            <span class="door__role">Co-Founder</span>
+          </span>
+        </span>
+        <span class="door__panel door__panel--l" aria-hidden="true">
+          <span class="door__tag">Jose</span>
+        </span>
+        <span class="door__panel door__panel--r" aria-hidden="true"></span>
+        <span class="door__frame" aria-hidden="true"></span>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3.4 SAMPLE PRODUCTS
+     ============================================================ -->
+<section class="products" id="products" aria-labelledby="productsTitle">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow" data-reveal="up">Sample Products</p>
+      <h2 class="sec-title" id="productsTitle" data-reveal="up">What’s in the <em class="font-rushk">Pocket</em></h2>
+      <p class="sec-lede" data-reveal="up">All crafted on soft, slightly sweet
+        <strong>Shokupan (食パン)</strong> Japanese milk bread.</p>
+    </header>
+  </div>
+
+  <!-- A) PINNED SCROLL-SCRUBBED SANDWICH ASSEMBLY -->
+  <div class="assembly" id="assembly">
+    <div class="assembly__stage">
+
+      <div class="assembly__copy">
+        <p class="beat" data-beat="0"><span>Soft <strong>Shokupan</strong>…</span></p>
+        <p class="beat" data-beat="1"><span>Freshly whipped <strong>cream</strong>…</span></p>
+        <p class="beat" data-beat="2"><span>Bright, sweet <strong>fruit</strong>…</span></p>
+        <p class="beat" data-beat="3"><span>Done. <strong>Pocket-sized.</strong></span></p>
+        <p class="assembly__hint" aria-hidden="true">keep scrolling ↓</p>
+      </div>
+
+      <div class="sandwich" aria-hidden="true">
+        <!-- bottom bread -->
+        <div class="layer layer--bottom" data-layer="bottom">
+          <svg viewBox="0 0 300 90" role="presentation">
+            <path d="M10 14h280v34c0 20-30 32-140 32S10 68 10 48z" fill="#F3D9AE"/>
+            <path d="M10 48c0 20 30 32 140 32s140-12 140-32" fill="none" stroke="#DDAE72" stroke-width="6"/>
+            <path d="M10 14h280v14H10z" fill="#E9C793"/>
+          </svg>
+        </div>
+        <!-- cream / filling -->
+        <div class="layer layer--cream" data-layer="cream">
+          <svg viewBox="0 0 300 60" role="presentation">
+            <path d="M12 34c16-14 34 8 52-6s34 10 52-6 34 10 52-6 34 10 52-6 30 6 68-4v34H12z" fill="#FFFDF7"/>
+            <path d="M12 34c16-14 34 8 52-6s34 10 52-6 34 10 52-6 34 10 52-6 30 6 68-4" fill="none" stroke="#F2E7D6" stroke-width="3"/>
+          </svg>
+        </div>
+        <!-- fruit layer -->
+        <div class="layer layer--fruit" data-layer="fruit">
+          <svg viewBox="0 0 300 70" role="presentation">
+            <g>
+              <ellipse cx="60" cy="36" rx="24" ry="20" fill="#E8455C"/>
+              <path d="M60 20v32M46 36h28" stroke="#FFF3F3" stroke-width="3" stroke-linecap="round"/>
+              <ellipse cx="150" cy="36" rx="24" ry="20" fill="#7CB342"/>
+              <circle cx="150" cy="36" r="7" fill="#F1F6E4"/>
+              <ellipse cx="240" cy="36" rx="24" ry="20" fill="#FFB300"/>
+              <path d="M240 22c8 6 8 22 0 28-8-6-8-22 0-28z" fill="#FFE082"/>
+            </g>
+          </svg>
+        </div>
+        <!-- top bread -->
+        <div class="layer layer--top" data-layer="top">
+          <svg viewBox="0 0 300 90" role="presentation">
+            <path d="M10 78V46c0-24 30-38 140-38s140 14 140 38v32z" fill="#F3D9AE"/>
+            <path d="M10 46c0-24 30-38 140-38s140 14 140 38" fill="none" stroke="#DDAE72" stroke-width="6"/>
+            <path d="M10 64h280v14H10z" fill="#E9C793"/>
+          </svg>
+        </div>
+        <!-- garnish -->
+        <div class="layer layer--garnish" data-layer="garnish">
+          <svg viewBox="0 0 340 200" role="presentation">
+            <g class="g g1"><path d="M40 30c10-12 26-4 24 10-2 12-18 20-26 12-8-8-6-14 2-22z" fill="#E8455C"/></g>
+            <g class="g g2"><circle cx="300" cy="52" r="8" fill="#7CB342"/></g>
+            <g class="g g3"><ellipse cx="288" cy="160" rx="12" ry="7" fill="#FFB300"/></g>
+            <g class="g g4"><circle cx="56" cy="168" r="5" fill="#4A050A" opacity=".55"/></g>
+            <g class="g g5"><circle cx="94" cy="182" r="4" fill="#4A050A" opacity=".4"/></g>
+            <g class="g g6"><circle cx="250" cy="24" r="4" fill="#4A050A" opacity=".4"/></g>
+            <g class="g g7"><path d="M160 8c6-7 16-3 15 6-1 8-11 12-16 7-5-5-4-9 1-13z" fill="#E88D8D"/></g>
+          </svg>
+        </div>
+      </div>
+
+      <span class="microtext microtext--assembly" aria-hidden="true">フルーツサンド</span>
+    </div>
+  </div>
+
+  <!-- PRODUCT CARDS -->
+  <div class="wrap">
+    <ul class="cards" data-stagger>
+      <li class="card" data-reveal="up">
+        <figure class="card__media">
+          <!-- REPLACE: assets/products/fruit-cream.jpg -->
+          <svg viewBox="0 0 400 300" role="img" aria-label="Illustration of a Japanese fruit cream sandwich">
+            <rect width="400" height="300" fill="#FFF1E4"/>
+            <g transform="translate(70 60)">
+              <rect x="0" y="0" width="260" height="54" rx="14" fill="#F3D9AE"/>
+              <path d="M6 70c22-12 44 8 66-4s44 8 66-4 44 8 66-4 40 6 56-4v34H6z" fill="#FFFDF7"/>
+              <ellipse cx="70" cy="130" rx="30" ry="24" fill="#E8455C"/>
+              <ellipse cx="160" cy="132" rx="28" ry="22" fill="#7CB342"/>
+              <ellipse cx="236" cy="130" rx="24" ry="20" fill="#FFB300"/>
+              <rect x="0" y="164" width="260" height="54" rx="14" fill="#F3D9AE"/>
+            </g>
+          </svg>
+        </figure>
+        <div class="card__body">
+          <p class="card__jp">フルーツサンド</p>
+          <h3>Japanese Fruit Cream Sandwich</h3>
+          <p class="card__desc">Delicate, dessert-style sando with freshly whipped cream and fresh fruit.</p>
+          <ul class="variants">
+            <li><button class="vchip" type="button">Classic Cream<span class="vchip__tip">Pure whipped cream between pillowy milk bread.</span></button></li>
+            <li><button class="vchip" type="button">Strawberry Cream<span class="vchip__tip">Fresh sweet strawberries + light whipped cream.</span></button></li>
+            <li><button class="vchip" type="button">Matcha Cream<span class="vchip__tip">A rich matcha-infused cream layer.</span></button></li>
+            <li><button class="vchip" type="button">Mango Cream<span class="vchip__tip">Tropical mango slices in fresh cream.</span></button></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="card" data-reveal="up">
+        <figure class="card__media">
+          <!-- REPLACE: assets/products/egg.jpg -->
+          <svg viewBox="0 0 400 300" role="img" aria-label="Illustration of a Japanese egg sandwich">
+            <rect width="400" height="300" fill="#FFF6E6"/>
+            <g transform="translate(70 60)">
+              <rect x="0" y="0" width="260" height="54" rx="14" fill="#F3D9AE"/>
+              <rect x="6" y="72" width="248" height="84" rx="18" fill="#FFE082"/>
+              <circle cx="70" cy="114" r="16" fill="#FFB300"/>
+              <circle cx="150" cy="114" r="16" fill="#FFB300"/>
+              <circle cx="230" cy="114" r="16" fill="#FFB300"/>
+              <rect x="0" y="164" width="260" height="54" rx="14" fill="#F3D9AE"/>
+            </g>
+          </svg>
+        </figure>
+        <div class="card__body">
+          <p class="card__jp">卵サンド</p>
+          <h3>Japanese Egg Sandwich</h3>
+          <p class="card__desc">Creamy egg salad with Kewpie mayo on soft Shokupan.</p>
+          <ul class="variants">
+            <li><button class="vchip" type="button">Classic Tamago<span class="vchip__tip">Creamy, lightly seasoned Japanese egg salad.</span></button></li>
+            <li><button class="vchip" type="button">Spicy Tamago<span class="vchip__tip">Classic egg salad with a gentle kick.</span></button></li>
+            <li><button class="vchip" type="button">Shoyu Tamago<span class="vchip__tip">Savory soy sauce seasoning.</span></button></li>
+            <li><button class="vchip" type="button">Truffle Tamago<span class="vchip__tip">A delicate hint of truffle oil.</span></button></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="card" data-reveal="up">
+        <figure class="card__media">
+          <!-- REPLACE: assets/products/fried-cream.jpg -->
+          <svg viewBox="0 0 400 300" role="img" aria-label="Illustration of a Japanese fried cream sandwich">
+            <rect width="400" height="300" fill="#FFEFD9"/>
+            <g transform="translate(70 60)">
+              <rect x="0" y="0" width="260" height="54" rx="14" fill="#E8B45C"/>
+              <path d="M6 74c22-10 44 8 66-4s44 8 66-4 44 8 66-4 40 6 56-4v40H6z" fill="#FFF3DF"/>
+              <rect x="0" y="164" width="260" height="54" rx="14" fill="#E8B45C"/>
+              <path d="M10 8h240" stroke="#D79B41" stroke-width="6" stroke-linecap="round" opacity=".7"/>
+            </g>
+          </svg>
+        </figure>
+        <div class="card__body">
+          <p class="card__jp">揚げサンド</p>
+          <h3>Japanese Fried Cream Sandwich</h3>
+          <p class="card__desc">Crispy golden-fried milk bread with warm cream or custard.</p>
+          <ul class="variants">
+            <li><button class="vchip" type="button">Classic Fried Cream<span class="vchip__tip">Golden fried bread, warm whipped cream.</span></button></li>
+            <li><button class="vchip" type="button">Chocolate Fried Cream<span class="vchip__tip">Filled with rich chocolate cream.</span></button></li>
+            <li><button class="vchip" type="button">Cheese Fried Cream<span class="vchip__tip">Warm melted cream cheese.</span></button></li>
+            <li><button class="vchip" type="button">Custard Fried Cream<span class="vchip__tip">Smooth Japanese custard cream.</span></button></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+
+    <p class="note" data-reveal="fade">These are samples, with more variants available.</p>
+  </div>
+</section>
+
+<!-- B) BEVERAGES -->
+<section class="drinks" id="drinks" aria-labelledby="drinksTitle">
+  <div class="wrap">
+    <header class="sec-head sec-head--light">
+      <p class="eyebrow" data-reveal="up">Beverages <span class="jp">飲み物</span></p>
+      <h2 class="sec-title" id="drinksTitle" data-reveal="up">Sip <em class="font-rushk">Along</em></h2>
+    </header>
+
+    <ul class="drink-grid" data-stagger>
+      <li class="drink" data-reveal="up">
+        <div class="cup" aria-hidden="true">
+          <svg viewBox="0 0 120 150" role="presentation">
+            <path class="cup__steam" d="M46 26c6-8-4-12 2-20M62 24c6-8-4-12 2-20M78 26c6-8-4-12 2-20" fill="none" stroke="#FFF9F2" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+            <path class="cup__body" d="M24 44h72l-8 86a12 12 0 0 1-12 10H44a12 12 0 0 1-12-10z" fill="#FFF9F2"/>
+            <path class="cup__liquid" d="M30 66h60l-6 62a10 10 0 0 1-10 9H46a10 10 0 0 1-10-9z" fill="#7CB342"/>
+            <path class="cup__lid" d="M20 34h80v14H20z" fill="#E88D8D"/>
+          </svg>
+        </div>
+        <h3>Matcha Latte</h3>
+        <p>Smooth, earthy matcha with fresh milk.</p>
+      </li>
+
+      <li class="drink" data-reveal="up">
+        <div class="cup" aria-hidden="true">
+          <svg viewBox="0 0 120 150" role="presentation">
+            <path class="cup__steam" d="M46 26c6-8-4-12 2-20M62 24c6-8-4-12 2-20M78 26c6-8-4-12 2-20" fill="none" stroke="#FFF9F2" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+            <path class="cup__body" d="M24 44h72l-8 86a12 12 0 0 1-12 10H44a12 12 0 0 1-12-10z" fill="#FFF9F2"/>
+            <path class="cup__liquid" d="M30 66h60l-6 62a10 10 0 0 1-10 9H46a10 10 0 0 1-10-9z" fill="#A9713B"/>
+            <path class="cup__lid" d="M20 34h80v14H20z" fill="#E88D8D"/>
+          </svg>
+        </div>
+        <h3>Hojicha Latte</h3>
+        <p>Roasted green tea, warm and toasty.</p>
+      </li>
+
+      <li class="drink" data-reveal="up">
+        <div class="cup" aria-hidden="true">
+          <svg viewBox="0 0 120 150" role="presentation">
+            <path class="cup__steam" d="M46 26c6-8-4-12 2-20M62 24c6-8-4-12 2-20M78 26c6-8-4-12 2-20" fill="none" stroke="#FFF9F2" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+            <path class="cup__body" d="M24 44h72l-8 86a12 12 0 0 1-12 10H44a12 12 0 0 1-12-10z" fill="#FFF9F2"/>
+            <path class="cup__liquid" d="M30 66h60l-6 62a10 10 0 0 1-10 9H46a10 10 0 0 1-10-9z" fill="#C99A63"/>
+            <path class="cup__lid" d="M20 34h80v14H20z" fill="#E88D8D"/>
+          </svg>
+        </div>
+        <h3>Classic Milk Tea</h3>
+        <p>Creamy, subtly sweet — hot or cold.</p>
+      </li>
+
+      <li class="drink" data-reveal="up">
+        <div class="cup" aria-hidden="true">
+          <svg viewBox="0 0 120 150" role="presentation">
+            <path class="cup__steam" d="M46 26c6-8-4-12 2-20M62 24c6-8-4-12 2-20M78 26c6-8-4-12 2-20" fill="none" stroke="#FFF9F2" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+            <path class="cup__body" d="M24 44h72l-8 86a12 12 0 0 1-12 10H44a12 12 0 0 1-12-10z" fill="#FFF9F2"/>
+            <path class="cup__liquid" d="M30 66h60l-6 62a10 10 0 0 1-10 9H46a10 10 0 0 1-10-9z" fill="#F5E6C8"/>
+            <path class="cup__stripe" d="M34 88h52M36 106h48" stroke="#8A5A2B" stroke-width="7" stroke-linecap="round" opacity=".8"/>
+            <path class="cup__lid" d="M20 34h80v14H20z" fill="#E88D8D"/>
+          </svg>
+        </div>
+        <h3>Brown Sugar Milk</h3>
+        <p>Brown sugar syrup stirred into cold milk.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================
+     3.5 LOGO DESIGN (CT#1)
+     ============================================================ -->
+<section class="logo" id="logo" aria-labelledby="logoTitle">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow" data-reveal="up">Creative Task #1</p>
+      <h2 class="sec-title" id="logoTitle" data-reveal="up">The <em class="font-rushk">Logo</em></h2>
+    </header>
+
+    <ol class="process" data-stagger>
+      <li class="process__step" data-reveal="up">
+        <span class="process__num">01</span>
+        <h3>Original Sketch</h3>
+        <figure class="process__fig process__fig--sketch">
+          <!-- REPLACE: assets/logo/sketch.jpg -->
+          <svg viewBox="0 0 320 240" role="img" aria-label="Hand-drawn sketch of the Tokyo Pocket logo mark">
+            <rect width="320" height="240" fill="#FFF9F2"/>
+            <g fill="none" stroke="#4A050A" stroke-width="3" stroke-linecap="round" opacity=".78" class="sketch-strokes">
+              <path d="M60 78h120M118 78v96"/>
+              <path d="M140 78h44a40 40 0 0 1 0 80h-44"/>
+              <path d="M78 56c14-8 44-10 74-4M96 44v18M140 42v20"/>
+              <path d="M150 132c14 6 26 14 34 24M148 146c12 6 22 12 30 20"/>
+              <path d="M64 196c26 10 70 12 116 2"/>
+              <path d="M226 66c14 4 22 16 20 30M232 116c10 6 14 16 12 26"/>
+            </g>
+            <text x="160" y="224" text-anchor="middle" font-family="Montserrat, sans-serif"
+                  font-size="15" font-weight="800" letter-spacing="4" fill="#9F111B">TOKYO POCKET</text>
+          </svg>
+        </figure>
+      </li>
+
+      <li class="process__step" data-reveal="up">
+        <span class="process__num">02</span>
+        <h3>Digital Refinement</h3>
+        <figure class="process__fig" id="refineFig">
+          <img src="assets/logo/primary.png" alt="Digital refinement of the Tokyo Pocket logo mark"
+               width="320" height="240" loading="lazy" class="refine-img">
+        </figure>
+      </li>
+
+      <li class="process__step" data-reveal="up">
+        <span class="process__num">03</span>
+        <h3>Final Logos</h3>
+        <div class="finals">
+          <figure class="final final--cream">
+            <img src="assets/logo/primary.png" alt="Tokyo Pocket primary logo on a cream background"
+                 width="240" height="160" loading="lazy">
+            <figcaption>Primary</figcaption>
+          </figure>
+          <figure class="final final--red">
+            <img src="assets/logo/secondary.png" alt="Tokyo Pocket secondary logo on a red background"
+                 width="300" height="150" loading="lazy">
+            <figcaption>Secondary</figcaption>
+          </figure>
+        </div>
+      </li>
+    </ol>
+
+    <div class="logo-meta">
+      <div class="palette-block" data-reveal="up">
+        <h3 class="sub-title sub-title--sm">Logo Palette</h3>
+        <ul class="swatches">
+          <li><button class="swatch" type="button" data-hex="#222222" style="--sw:#222222"><span class="swatch__hex">#222222</span><span class="swatch__name">Charcoal</span></button></li>
+          <li><button class="swatch" type="button" data-hex="#FFF9F2" style="--sw:#FFF9F2"><span class="swatch__hex">#FFF9F2</span><span class="swatch__name">Alabaster</span></button></li>
+          <li><button class="swatch" type="button" data-hex="#DEBF98" style="--sw:#DEBF98"><span class="swatch__hex">#DEBF98</span><span class="swatch__name">Sand</span></button></li>
+          <li><button class="swatch" type="button" data-hex="#9F111B" style="--sw:#9F111B"><span class="swatch__hex">#9F111B</span><span class="swatch__name">Crimson</span></button></li>
+        </ul>
+      </div>
+
+      <div class="type-block" data-reveal="up">
+        <h3 class="sub-title sub-title--sm">Typography</h3>
+        <p class="type-block__label">Montserrat ExtraBold</p>
+        <p class="type-block__specimen" aria-label="Type specimen: Aa Bb Cc Dd Ee">Aa Bb Cc Dd Ee</p>
+        <p class="type-block__note">Headlines: Fredoka · Display accent: Rushk</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3.6 FIRST EVER BRAND POST (CT#2)
+     ============================================================ -->
+<section class="post" id="brandpost" aria-labelledby="postTitle">
+  <div class="wrap post__grid">
+    <header class="sec-head sec-head--left">
+      <p class="eyebrow" data-reveal="up">Creative Task #2</p>
+      <h2 class="sec-title" id="postTitle" data-reveal="up">First <em class="font-rushk">Brand Post</em></h2>
+      <p class="sec-lede" data-reveal="up">Palette: Signature red <code>#C5101D</code> · Warm cream <code>#FFF9F2</code>.
+        Type: <strong>Fredoka</strong> headline, <strong>Montserrat</strong> body.</p>
+    </header>
+
+    <div class="phone" id="phone" data-reveal="scale" data-cursor="View">
+      <div class="phone__screen">
+        <div class="ig-head">
+          <span class="ig-avatar" aria-hidden="TP"></span>
+          <span class="ig-user">tokyopocket.co</span>
+          <span class="ig-dots" aria-hidden="true">•••</span>
+        </div>
+
+        <img class="ig-img" src="assets/posts/first-brand-post.png"
+             alt="Tokyo Pocket first brand post: two fruit cream sandos on a plate with the line Good Taste Fits Right Here."
+             width="612" height="612" loading="lazy">
+
+        <div class="ig-actions">
+          <button class="heart" id="heart" type="button" aria-pressed="false" aria-label="Like this post">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.6-9.2C.7 8.3 2.6 4.7 6.1 4.2c2.1-.3 4 .7 5 2.4 1-1.7 2.9-2.7 5-2.4 3.5.5 5.4 4.1 3.7 7.6C19.5 16.3 12 21 12 21z"/></svg>
+          </button>
+          <span class="ig-count" id="likeCount">128</span>
+          <span class="ig-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.5-5A8 8 0 1 1 21 12z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </span>
+          <span class="ig-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M22 3 11 14M22 3l-7 19-4-8-8-4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+
+        <p class="ig-caption" id="caption">
+          <span class="line-typed">Deserve mo ’to.</span>
+          <span class="line-typed">Beh, celebrate every achievement—big or small—</span>
+          <span class="line-typed">with a delicious sando made just for you.</span>
+          <span class="line-typed">A little taste of Tokyo, right here,</span>
+          <span class="line-typed">right in your pocket.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     3.7 PROMOTIONAL EVENT POSTER (CT#3)
+     ============================================================ -->
+<section class="poster" id="poster" aria-labelledby="posterTitle">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow" data-reveal="up">Creative Task #3</p>
+      <h2 class="sec-title" id="posterTitle" data-reveal="up">Promotional <em class="font-rushk">Event Poster</em></h2>
+    </header>
+
+    <div class="poster__hold" data-scrub-scale>
+      <button class="poster__frame" id="posterFrame" type="button"
+              aria-label="Enlarge the promotional event poster" data-cursor="View">
+        <img src="assets/poster/event-poster.png"
+             alt="Tokyo Pocket promotional poster: Sweet Escape — Fresh Cream &amp; Fruit Sandwiches, 20% off on opening day, October 4 2026, Freedom Park, Cabanatuan City."
+             width="1080" height="1350" loading="lazy">
+      </button>
+    </div>
+
+    <div class="poster__meta">
+      <div data-reveal="up">
+        <h3 class="sub-title sub-title--sm">Palette <span class="jp">単色</span></h3>
+        <ul class="swatches swatches--poster">
+          <li><button class="swatch" type="button" data-hex="#4A050A" style="--sw:#4A050A"><span class="swatch__hex">#4A050A</span><span class="swatch__name">Deep Burgundy</span></button></li>
+          <li><button class="swatch" type="button" data-hex="#9F111B" style="--sw:#9F111B"><span class="swatch__hex">#9F111B</span><span class="swatch__name">Crimson</span></button></li>
+          <li><button class="swatch" type="button" data-hex="#C5101D" style="--sw:#C5101D"><span class="swatch__hex">#C5101D</span><span class="swatch__name">Signature Red</span></button></li>
+          <li><button class="swatch" type="button" data-hex="#E88D8D" style="--sw:#E88D8D"><span class="swatch__hex">#E88D8D</span><span class="swatch__name">Soft Pink</span></button></li>
+          <li><button class="swatch" type="button" data-hex="#FFF9F2" style="--sw:#FFF9F2"><span class="swatch__hex">#FFF9F2</span><span class="swatch__name">Warm Cream</span></button></li>
+        </ul>
+      </div>
+
+      <div data-reveal="up">
+        <h3 class="sub-title sub-title--sm">Typography</h3>
+        <p class="poster__type poster__type--display font-rushk">Rushk</p>
+        <p class="poster__type poster__type--body">Montserrat — body copy &amp; details</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     3.8 FOOTER / CLOSING
+     ============================================================ -->
+<footer class="footer" id="footer">
+  <div class="noren" aria-hidden="true">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0 0h1440v70c-60 0-60 46-120 46S1260 70 1200 70s-60 46-120 46S960 70 900 70s-60 46-120 46S660 70 600 70s-60 46-120 46S360 70 300 70s-60 46-120 46S60 70 0 70z" fill="var(--burgundy)"/>
+    </svg>
+  </div>
+
+  <div class="wrap footer__inner">
+    <p class="footer__heroline" data-reveal="fade">Welcome to Tokyo, in your pocket.</p>
+    <h2 class="footer__thanks" data-split>
+      <span class="line"><span class="line__in">Thank You</span></span>
+    </h2>
+    <p class="footer__tag">“Good Taste Fits Right Here.”</p>
+
+    <img class="footer__logo" src="assets/logo/secondary.png" alt="Tokyo Pocket logo" width="300" height="150" loading="lazy">
+
+    <ul class="footer__names">
+      <li>Brandon Jake Dela Cruz</li>
+      <li>Winston Francisco</li>
+      <li>Ana Leah Marcelo</li>
+      <li>Jose Olinares</li>
+    </ul>
+
+    <p class="footer__class">BSIT-4C</p>
+
+    <a class="btn btn--primary footer__top" href="#hero">Back to top ↑</a>
+  </div>
+</footer>
+
+<!-- === LIGHTBOX === -->
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Close enlarged poster">✕</button>
+  <img src="assets/poster/event-poster.png" alt="Tokyo Pocket promotional event poster, enlarged" width="1080" height="1350">
+</div>
+
+<!-- === COPY TOAST === -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
