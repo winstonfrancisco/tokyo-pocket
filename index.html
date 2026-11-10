@@ -12,6 +12,8 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Montserrat:wght@400;500;600;800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Montserrat:wght@400;500;600;800&display=swap">
 
+<link rel="preload" href="assets/fonts/Rushk.woff2" as="font" type="font/woff2" crossorigin>
+
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -28,7 +30,7 @@
 <header class="nav" id="nav">
   <div class="nav__inner">
     <a class="nav__logo" href="#hero" aria-label="Tokyo Pocket — back to top">
-      <img src="assets/logo/primary.png" alt="Tokyo Pocket logo" width="132" height="44">
+      <img src="assets/logo/primary.png" alt="Tokyo Pocket logo" width="204" height="68">
     </a>
 
     <button class="nav__burger" id="navBurger" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
@@ -36,17 +38,20 @@
     </button>
 
     <nav class="nav__menu" id="navMenu" aria-label="Primary">
-      <a href="#concept" class="nav__link">Concept</a>
-      <a href="#owners" class="nav__link">Owners</a>
-      <a href="#products" class="nav__link">Products</a>
-      <a href="#logo" class="nav__link">Logo</a>
-      <a href="#brandpost" class="nav__link">Brand Post</a>
-      <a href="#poster" class="nav__link">Poster</a>
+      <a href="#home" class="nav__link">Home</a>
+      <a href="#about" class="nav__link">About</a>
+      <a href="#brand" class="nav__link">Brand</a>
+      <a href="#post" class="nav__link">Post</a>
     </nav>
   </div>
 </header>
 
 <main id="main">
+
+<!-- ============================================================
+     GROUP: HOME
+     ============================================================ -->
+<div id="home">
 
 <!-- ============================================================
      3.1 HERO
@@ -116,8 +121,6 @@
   <a class="hero__scroll" href="#concept" aria-label="Scroll to Business Concept">
     <span>Scroll</span><i aria-hidden="true"></i>
   </a>
-
-  <span class="microtext microtext--hero" aria-hidden="true">食パン</span>
 </section>
 
 <!-- divider -->
@@ -133,7 +136,6 @@
 <section class="concept" id="concept" aria-labelledby="conceptTitle">
   <div class="wrap">
     <header class="sec-head">
-      <p class="eyebrow" data-reveal="up">Performance Task #1</p>
       <h2 class="sec-title" id="conceptTitle" data-reveal="up">Business <em class="font-rushk">Concept</em></h2>
     </header>
 
@@ -148,43 +150,11 @@
         <strong>“Tokyo”</strong> — the cultural heart of Japanese cuisine and innovation.
         <strong>“Pocket”</strong> — the compact yet richly filled nature of a Japanese sandwich.
       </p>
-      <blockquote class="big-quote" data-reveal="up">“Good Taste Fits Right Here.”</blockquote>
     </div>
 
-    <!-- 2. HISTORY / BRAND STORY -->
-    <div class="story">
-      <h3 class="sub-title" data-reveal="up">The Story</h3>
-
-      <div class="timeline" id="timeline">
-        <svg class="timeline__line" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
-          <path id="timelinePath" d="M40 30 H960" fill="none" stroke="var(--red)" stroke-width="4"
-                stroke-linecap="round" stroke-dasharray="10 14"/>
-        </svg>
-
-        <ol class="timeline__steps" data-stagger>
-          <li class="step" data-reveal="up">
-            <span class="step__dot" aria-hidden="true">01</span>
-            <h4>Friends</h4>
-            <p>A group who loved Japanese sandwich culture.</p>
-          </li>
-          <li class="step" data-reveal="up">
-            <span class="step__dot" aria-hidden="true">02</span>
-            <h4>Weekend Experiments</h4>
-            <p>Recipes tested at home — soft milk bread, carefully chosen fillings.</p>
-          </li>
-          <li class="step" data-reveal="up">
-            <span class="step__dot" aria-hidden="true">03</span>
-            <h4>Creation</h4>
-            <p>Experiments became a brand built on quality and sincerity.</p>
-          </li>
-        </ol>
-      </div>
-    </div>
-
-    <!-- 3. MISSION & VISION -->
+    <!-- MISSION & VISION -->
     <div class="mv" data-stagger>
       <article class="mv__card mv__card--mission" data-reveal="left">
-        <span class="mv__jp" aria-hidden="true">使命</span>
         <h3>Mission</h3>
         <p>To deliver a premium and authentic Tokyo-style sandwich experience to every Filipino
           food lover, honoring the craftsmanship, simplicity, and quality that Japanese cuisine
@@ -192,33 +162,21 @@
       </article>
 
       <article class="mv__card mv__card--vision" data-reveal="right">
-        <span class="mv__jp" aria-hidden="true">展望</span>
         <h3>Vision</h3>
         <p>To become the most trusted and beloved Japanese sandwich brand in the Philippines,
           bringing the warmth and spirit of Tokyo’s street food culture closer to every Filipino
           food lover, one pocket at a time.</p>
       </article>
     </div>
-
-    <!-- 4. WHO WE SERVE -->
-    <div class="serve" data-stagger>
-      <h3 class="sub-title sub-title--sm" data-reveal="up">Who we serve</h3>
-      <ul class="chips">
-        <li class="chip" data-reveal="up">
-          <b><span data-count="13">0</span>–<span data-count="18">0</span></b> Snack seekers
-        </li>
-        <li class="chip" data-reveal="up">
-          <b><span data-count="18">0</span>–<span data-count="25">0</span></b> Trend followers
-        </li>
-        <li class="chip" data-reveal="up">
-          <b><span data-count="25">0</span>–<span data-count="35">0</span></b> Foodies / busy adults
-        </li>
-      </ul>
-    </div>
   </div>
-
-  <span class="microtext microtext--side" aria-hidden="true">東京ポケット</span>
 </section>
+
+</div><!-- /#home -->
+
+<!-- ============================================================
+     GROUP: ABOUT
+     ============================================================ -->
+<div id="about">
 
 <!-- ============================================================
      3.3 THE OWNERS — SHOJI DOOR HOVER
@@ -228,7 +186,7 @@
 
   <div class="wrap">
     <header class="sec-head sec-head--light">
-      <p class="eyebrow" data-reveal="up">The Owners <span class="jp">友</span></p>
+      <p class="eyebrow" data-reveal="up">The Owners</p>
       <h2 class="sec-title" id="ownersTitle" data-reveal="up">Meet the Friends <em class="font-rushk">Behind the Pocket</em></h2>
       <p class="sec-hint" data-reveal="fade">Hover, tap or press Enter to slide the shoji open.</p>
     </header>
@@ -304,6 +262,43 @@
 </section>
 
 <!-- ============================================================
+     HISTORY / BRAND STORY
+     ============================================================ -->
+<section class="history" id="history" aria-labelledby="historyTitle">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow" data-reveal="up">History</p>
+      <h2 class="sec-title" id="historyTitle" data-reveal="up">The <em class="font-rushk">Story</em></h2>
+    </header>
+
+    <div class="timeline" id="timeline">
+      <svg class="timeline__line" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
+        <path id="timelinePath" d="M40 30 H960" fill="none" stroke="var(--red)" stroke-width="4"
+              stroke-linecap="round" stroke-dasharray="10 14"/>
+      </svg>
+
+      <ol class="timeline__steps" data-stagger>
+        <li class="step" data-reveal="up">
+          <span class="step__dot" aria-hidden="true">01</span>
+          <h4>Friends</h4>
+          <p>A group who loved Japanese sandwich culture.</p>
+        </li>
+        <li class="step" data-reveal="up">
+          <span class="step__dot" aria-hidden="true">02</span>
+          <h4>Weekend Experiments</h4>
+          <p>Recipes tested at home — soft milk bread, carefully chosen fillings.</p>
+        </li>
+        <li class="step" data-reveal="up">
+          <span class="step__dot" aria-hidden="true">03</span>
+          <h4>Creation</h4>
+          <p>Experiments became a brand built on quality and sincerity.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      3.4 SAMPLE PRODUCTS
      ============================================================ -->
 <section class="products" id="products" aria-labelledby="productsTitle">
@@ -312,7 +307,7 @@
       <p class="eyebrow" data-reveal="up">Sample Products</p>
       <h2 class="sec-title" id="productsTitle" data-reveal="up">What’s in the <em class="font-rushk">Pocket</em></h2>
       <p class="sec-lede" data-reveal="up">All crafted on soft, slightly sweet
-        <strong>Shokupan (食パン)</strong> Japanese milk bread.</p>
+        <strong>Shokupan</strong> Japanese milk bread.</p>
     </header>
   </div>
 
@@ -378,15 +373,13 @@
           </svg>
         </div>
       </div>
-
-      <span class="microtext microtext--assembly" aria-hidden="true">フルーツサンド</span>
     </div>
   </div>
 
   <!-- PRODUCT CARDS -->
   <div class="wrap">
     <ul class="cards" data-stagger>
-      <li class="card" data-reveal="up">
+      <li class="card" data-reveal="up" role="button" tabindex="0" aria-haspopup="dialog" data-cursor="View">
         <figure class="card__media">
           <!-- REPLACE: assets/products/fruit-cream.jpg -->
           <svg viewBox="0 0 400 300" role="img" aria-label="Illustration of a Japanese fruit cream sandwich">
@@ -405,16 +398,23 @@
           <p class="card__jp">フルーツサンド</p>
           <h3>Japanese Fruit Cream Sandwich</h3>
           <p class="card__desc">Delicate, dessert-style sando with freshly whipped cream and fresh fruit.</p>
-          <ul class="variants">
-            <li><button class="vchip" type="button">Classic Cream<span class="vchip__tip">Pure whipped cream between pillowy milk bread.</span></button></li>
-            <li><button class="vchip" type="button">Strawberry Cream<span class="vchip__tip">Fresh sweet strawberries + light whipped cream.</span></button></li>
-            <li><button class="vchip" type="button">Matcha Cream<span class="vchip__tip">A rich matcha-infused cream layer.</span></button></li>
-            <li><button class="vchip" type="button">Mango Cream<span class="vchip__tip">Tropical mango slices in fresh cream.</span></button></li>
-          </ul>
+          <p class="card__cta">View gallery</p>
         </div>
+        <template class="card__tpl">
+          <figure class="pdp__ph">
+            <span>Photo placeholder 02</span>
+            <b>Japanese Fruit Cream Sandwich</b>
+            <i>Close-up cross-section — swap for assets/products/fruit-cream-2.jpg</i>
+          </figure>
+          <figure class="pdp__ph">
+            <span>Photo placeholder 03</span>
+            <b>Japanese Fruit Cream Sandwich</b>
+            <i>Plated serving shot — swap for assets/products/fruit-cream-3.jpg</i>
+          </figure>
+        </template>
       </li>
 
-      <li class="card" data-reveal="up">
+      <li class="card" data-reveal="up" role="button" tabindex="0" aria-haspopup="dialog" data-cursor="View">
         <figure class="card__media">
           <!-- REPLACE: assets/products/egg.jpg -->
           <svg viewBox="0 0 400 300" role="img" aria-label="Illustration of a Japanese egg sandwich">
@@ -433,16 +433,23 @@
           <p class="card__jp">卵サンド</p>
           <h3>Japanese Egg Sandwich</h3>
           <p class="card__desc">Creamy egg salad with Kewpie mayo on soft Shokupan.</p>
-          <ul class="variants">
-            <li><button class="vchip" type="button">Classic Tamago<span class="vchip__tip">Creamy, lightly seasoned Japanese egg salad.</span></button></li>
-            <li><button class="vchip" type="button">Spicy Tamago<span class="vchip__tip">Classic egg salad with a gentle kick.</span></button></li>
-            <li><button class="vchip" type="button">Shoyu Tamago<span class="vchip__tip">Savory soy sauce seasoning.</span></button></li>
-            <li><button class="vchip" type="button">Truffle Tamago<span class="vchip__tip">A delicate hint of truffle oil.</span></button></li>
-          </ul>
+          <p class="card__cta">View gallery</p>
         </div>
+        <template class="card__tpl">
+          <figure class="pdp__ph">
+            <span>Photo placeholder 02</span>
+            <b>Japanese Egg Sandwich</b>
+            <i>Close-up cross-section — swap for assets/products/egg-2.jpg</i>
+          </figure>
+          <figure class="pdp__ph">
+            <span>Photo placeholder 03</span>
+            <b>Japanese Egg Sandwich</b>
+            <i>Plated serving shot — swap for assets/products/egg-3.jpg</i>
+          </figure>
+        </template>
       </li>
 
-      <li class="card" data-reveal="up">
+      <li class="card" data-reveal="up" role="button" tabindex="0" aria-haspopup="dialog" data-cursor="View">
         <figure class="card__media">
           <!-- REPLACE: assets/products/fried-cream.jpg -->
           <svg viewBox="0 0 400 300" role="img" aria-label="Illustration of a Japanese fried cream sandwich">
@@ -459,17 +466,24 @@
           <p class="card__jp">揚げサンド</p>
           <h3>Japanese Fried Cream Sandwich</h3>
           <p class="card__desc">Crispy golden-fried milk bread with warm cream or custard.</p>
-          <ul class="variants">
-            <li><button class="vchip" type="button">Classic Fried Cream<span class="vchip__tip">Golden fried bread, warm whipped cream.</span></button></li>
-            <li><button class="vchip" type="button">Chocolate Fried Cream<span class="vchip__tip">Filled with rich chocolate cream.</span></button></li>
-            <li><button class="vchip" type="button">Cheese Fried Cream<span class="vchip__tip">Warm melted cream cheese.</span></button></li>
-            <li><button class="vchip" type="button">Custard Fried Cream<span class="vchip__tip">Smooth Japanese custard cream.</span></button></li>
-          </ul>
+          <p class="card__cta">View gallery</p>
         </div>
+        <template class="card__tpl">
+          <figure class="pdp__ph">
+            <span>Photo placeholder 02</span>
+            <b>Japanese Fried Cream Sandwich</b>
+            <i>Close-up cross-section — swap for assets/products/fried-cream-2.jpg</i>
+          </figure>
+          <figure class="pdp__ph">
+            <span>Photo placeholder 03</span>
+            <b>Japanese Fried Cream Sandwich</b>
+            <i>Plated serving shot — swap for assets/products/fried-cream-3.jpg</i>
+          </figure>
+        </template>
       </li>
     </ul>
 
-    <p class="note" data-reveal="fade">These are samples, with more variants available.</p>
+    <p class="note" data-reveal="fade">Tap a card to view the full gallery — samples, with more variants available.</p>
   </div>
 </section>
 
@@ -477,7 +491,7 @@
 <section class="drinks" id="drinks" aria-labelledby="drinksTitle">
   <div class="wrap">
     <header class="sec-head sec-head--light">
-      <p class="eyebrow" data-reveal="up">Beverages <span class="jp">飲み物</span></p>
+      <p class="eyebrow" data-reveal="up">Beverages</p>
       <h2 class="sec-title" id="drinksTitle" data-reveal="up">Sip <em class="font-rushk">Along</em></h2>
     </header>
 
@@ -538,13 +552,19 @@
   </div>
 </section>
 
+</div><!-- /#about -->
+
+<!-- ============================================================
+     GROUP: BRAND
+     ============================================================ -->
+<div id="brand">
+
 <!-- ============================================================
      3.5 LOGO DESIGN (CT#1)
      ============================================================ -->
 <section class="logo" id="logo" aria-labelledby="logoTitle">
   <div class="wrap">
     <header class="sec-head">
-      <p class="eyebrow" data-reveal="up">Creative Task #1</p>
       <h2 class="sec-title" id="logoTitle" data-reveal="up">The <em class="font-rushk">Logo</em></h2>
     </header>
 
@@ -597,26 +617,89 @@
       </li>
     </ol>
 
-    <div class="logo-meta">
-      <div class="palette-block" data-reveal="up">
-        <h3 class="sub-title sub-title--sm">Logo Palette</h3>
-        <ul class="swatches">
-          <li><button class="swatch" type="button" data-hex="#222222" style="--sw:#222222"><span class="swatch__hex">#222222</span><span class="swatch__name">Charcoal</span></button></li>
-          <li><button class="swatch" type="button" data-hex="#FFF9F2" style="--sw:#FFF9F2"><span class="swatch__hex">#FFF9F2</span><span class="swatch__name">Alabaster</span></button></li>
-          <li><button class="swatch" type="button" data-hex="#DEBF98" style="--sw:#DEBF98"><span class="swatch__hex">#DEBF98</span><span class="swatch__name">Sand</span></button></li>
-          <li><button class="swatch" type="button" data-hex="#9F111B" style="--sw:#9F111B"><span class="swatch__hex">#9F111B</span><span class="swatch__name">Crimson</span></button></li>
-        </ul>
+    <!-- ============ COLOR PALETTE ============ -->
+    <div class="palette-block" data-reveal="up">
+      <h3 class="sub-title sub-title--sm">Color Palette</h3>
+      <ul class="swatches swatches--full">
+        <li><button class="swatch" type="button" data-hex="#4A050A" style="--sw:#4A050A"><span class="swatch__hex">#4A050A</span><span class="swatch__name">Deep Burgundy</span><span class="swatch__role">Base &amp; deep contrast</span></button></li>
+        <li><button class="swatch" type="button" data-hex="#9F111B" style="--sw:#9F111B"><span class="swatch__hex">#9F111B</span><span class="swatch__name">Crimson</span><span class="swatch__role">Logo &amp; strong accents</span></button></li>
+        <li><button class="swatch" type="button" data-hex="#C5101D" style="--sw:#C5101D"><span class="swatch__hex">#C5101D</span><span class="swatch__name">Signature Red</span><span class="swatch__role">Primary actions &amp; CTAs</span></button></li>
+        <li><button class="swatch" type="button" data-hex="#E88D8D" style="--sw:#E88D8D"><span class="swatch__hex">#E88D8D</span><span class="swatch__name">Soft Pink</span><span class="swatch__role">Secondary accent</span></button></li>
+        <li><button class="swatch" type="button" data-hex="#FFF9F2" style="--sw:#FFF9F2"><span class="swatch__hex">#FFF9F2</span><span class="swatch__name">Warm Cream</span><span class="swatch__role">Page background</span></button></li>
+        <li><button class="swatch" type="button" data-hex="#DEBF98" style="--sw:#DEBF98"><span class="swatch__hex">#DEBF98</span><span class="swatch__name">Sand</span><span class="swatch__role">Warm neutral &amp; texture</span></button></li>
+        <li><button class="swatch" type="button" data-hex="#222222" style="--sw:#222222"><span class="swatch__hex">#222222</span><span class="swatch__name">Charcoal</span><span class="swatch__role">Body text</span></button></li>
+      </ul>
+      <p class="palette-note">Click any swatch to copy its hex code.</p>
+    </div>
+
+    <!-- ============ TYPOGRAPHY ============ -->
+    <div class="type-block" data-reveal="up">
+      <h3 class="sub-title sub-title--sm">Typography</h3>
+
+      <ul class="typegrid">
+        <li class="typecard">
+          <p class="typecard__role">Headlines</p>
+          <p class="typecard__sample typecard__sample--display" aria-hidden="true">Aa</p>
+          <p class="typecard__family">Fredoka</p>
+          <p class="typecard__weights">400 · 500 · 600 · 700</p>
+          <p class="typecard__alpha">ABCDEFGHIJKLM<br>NOPQRSTUVWXYZ<br>0123456789</p>
+          <p class="typecard__use">Section titles, hero headline and pull quotes — round, friendly and warm.</p>
+        </li>
+
+        <li class="typecard">
+          <p class="typecard__role">Body &amp; UI</p>
+          <p class="typecard__sample typecard__sample--body" aria-hidden="true">Aa</p>
+          <p class="typecard__family">Montserrat</p>
+          <p class="typecard__weights">400 · 600 · 800</p>
+          <p class="typecard__alpha">ABCDEFGHIJKLM<br>NOPQRSTUVWXYZ<br>0123456789</p>
+          <p class="typecard__use">Paragraph copy, buttons, navigation and every small uppercase label.</p>
+        </li>
+
+        <li class="typecard typecard--brush">
+          <p class="typecard__role">Display accent</p>
+          <p class="typecard__sample typecard__sample--brush font-rushk" aria-hidden="true">Aa</p>
+          <p class="typecard__family">Rushk</p>
+          <p class="typecard__weights">400 · self-hosted .woff2</p>
+          <p class="typecard__alpha">ABCDEFGHIJKLM<br>NOPQRSTUVWXYZ<br>0123456789</p>
+          <p class="typecard__use">One painted word per heading — never for body copy or small text.</p>
+        </li>
+      </ul>
+
+      <div class="hierarchy">
+        <div class="hier">
+          <span class="hier__tag">Section title</span>
+          <span class="hier__ex hier__ex--h2">Business <em class="font-rushk">Concept</em></span>
+          <span class="hier__spec">Fredoka 700 · clamp(2.2rem → 4.4rem)</span>
+        </div>
+        <div class="hier">
+          <span class="hier__tag">Sub-head</span>
+          <span class="hier__ex hier__ex--h3">Weekend Experiments</span>
+          <span class="hier__spec">Fredoka 600 · clamp(1.4rem → 2.1rem)</span>
+        </div>
+        <div class="hier">
+          <span class="hier__tag">Body copy</span>
+          <span class="hier__ex hier__ex--body">Fresh flavor travels with you, folded into one delicious portable bite.</span>
+          <span class="hier__spec">Montserrat 400 · 16–18px · line-height 1.6</span>
+        </div>
+        <div class="hier">
+          <span class="hier__tag">Label</span>
+          <span class="hier__ex hier__ex--label">Sample Products</span>
+          <span class="hier__spec">Montserrat 800 · 0.75rem · letter-spacing 0.28em</span>
+        </div>
       </div>
 
-      <div class="type-block" data-reveal="up">
-        <h3 class="sub-title sub-title--sm">Typography</h3>
-        <p class="type-block__label">Montserrat ExtraBold</p>
-        <p class="type-block__specimen" aria-label="Type specimen: Aa Bb Cc Dd Ee">Aa Bb Cc Dd Ee</p>
-        <p class="type-block__note">Headlines: Fredoka · Display accent: Rushk</p>
-      </div>
+      <p class="type-block__note">Logotype: <strong>Montserrat ExtraBold</strong> with wide tracking ·
+        Headlines: <strong>Fredoka</strong> · Display accent: <strong>Rushk</strong></p>
     </div>
   </div>
 </section>
+
+</div><!-- /#brand -->
+
+<!-- ============================================================
+     GROUP: POST
+     ============================================================ -->
+<div id="post">
 
 <!-- ============================================================
      3.6 FIRST EVER BRAND POST (CT#2)
@@ -624,10 +707,9 @@
 <section class="post" id="brandpost" aria-labelledby="postTitle">
   <div class="wrap post__grid">
     <header class="sec-head sec-head--left">
-      <p class="eyebrow" data-reveal="up">Creative Task #2</p>
       <h2 class="sec-title" id="postTitle" data-reveal="up">First <em class="font-rushk">Brand Post</em></h2>
-      <p class="sec-lede" data-reveal="up">Palette: Signature red <code>#C5101D</code> · Warm cream <code>#FFF9F2</code>.
-        Type: <strong>Fredoka</strong> headline, <strong>Montserrat</strong> body.</p>
+      <p class="sec-lede" data-reveal="up">Our launch post — soft sandos, sakura light, and a line
+        worth sharing: <strong>Good Taste Fits Right Here.</strong></p>
     </header>
 
     <div class="phone" id="phone" data-reveal="scale" data-cursor="View">
@@ -664,6 +746,25 @@
         </p>
       </div>
     </div>
+
+    <div class="spec-grid spec-grid--post">
+      <div data-reveal="up">
+        <h3 class="sub-title sub-title--sm">Palette</h3>
+        <ul class="swatches swatches--spec">
+          <li><button class="swatch" type="button" data-hex="#C5101D" style="--sw:#C5101D"><span class="swatch__hex">#C5101D</span><span class="swatch__name">Signature Red</span></button></li>
+          <li><button class="swatch" type="button" data-hex="#FFF9F2" style="--sw:#FFF9F2"><span class="swatch__hex">#FFF9F2</span><span class="swatch__name">Warm Cream</span></button></li>
+          <li><button class="swatch" type="button" data-hex="#222222" style="--sw:#222222"><span class="swatch__hex">#222222</span><span class="swatch__name">Charcoal</span></button></li>
+          <li><button class="swatch" type="button" data-hex="#E88D8D" style="--sw:#E88D8D"><span class="swatch__hex">#E88D8D</span><span class="swatch__name">Soft Pink</span></button></li>
+          <li><button class="swatch" type="button" data-hex="#4A050A" style="--sw:#4A050A"><span class="swatch__hex">#4A050A</span><span class="swatch__name">Deep Burgundy</span></button></li>
+        </ul>
+      </div>
+
+      <div data-reveal="up">
+        <h3 class="sub-title sub-title--sm">Typography</h3>
+        <p class="spec-type spec-type--display font-fredoka">Fredoka</p>
+        <p class="spec-type spec-type--body">Montserrat — body copy &amp; details</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -673,7 +774,6 @@
 <section class="poster" id="poster" aria-labelledby="posterTitle">
   <div class="wrap">
     <header class="sec-head">
-      <p class="eyebrow" data-reveal="up">Creative Task #3</p>
       <h2 class="sec-title" id="posterTitle" data-reveal="up">Promotional <em class="font-rushk">Event Poster</em></h2>
     </header>
 
@@ -686,10 +786,10 @@
       </button>
     </div>
 
-    <div class="poster__meta">
+    <div class="spec-grid">
       <div data-reveal="up">
-        <h3 class="sub-title sub-title--sm">Palette <span class="jp">単色</span></h3>
-        <ul class="swatches swatches--poster">
+        <h3 class="sub-title sub-title--sm">Palette</h3>
+        <ul class="swatches swatches--spec">
           <li><button class="swatch" type="button" data-hex="#4A050A" style="--sw:#4A050A"><span class="swatch__hex">#4A050A</span><span class="swatch__name">Deep Burgundy</span></button></li>
           <li><button class="swatch" type="button" data-hex="#9F111B" style="--sw:#9F111B"><span class="swatch__hex">#9F111B</span><span class="swatch__name">Crimson</span></button></li>
           <li><button class="swatch" type="button" data-hex="#C5101D" style="--sw:#C5101D"><span class="swatch__hex">#C5101D</span><span class="swatch__name">Signature Red</span></button></li>
@@ -700,12 +800,14 @@
 
       <div data-reveal="up">
         <h3 class="sub-title sub-title--sm">Typography</h3>
-        <p class="poster__type poster__type--display font-rushk">Rushk</p>
-        <p class="poster__type poster__type--body">Montserrat — body copy &amp; details</p>
+        <p class="spec-type spec-type--display font-rushk">Rushk</p>
+        <p class="spec-type spec-type--body">Montserrat — body copy &amp; details</p>
       </div>
     </div>
   </div>
 </section>
+
+</div><!-- /#post -->
 
 </main>
 
@@ -745,6 +847,28 @@
 <div class="lightbox" id="lightbox" hidden>
   <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Close enlarged poster">✕</button>
   <img src="assets/poster/event-poster.png" alt="Tokyo Pocket promotional event poster, enlarged" width="1080" height="1350">
+</div>
+
+<!-- === PRODUCT DIALOG === -->
+<div class="pdp" id="pdp" hidden role="dialog" aria-modal="true" aria-labelledby="pdpTitle">
+  <div class="pdp__panel">
+    <button class="pdp__close" id="pdpClose" type="button" aria-label="Close product gallery">✕</button>
+
+    <div class="pdp__stage">
+      <div class="pdp__track" id="pdpTrack"></div>
+      <button class="pdp__nav pdp__nav--prev" id="pdpPrev" type="button" aria-label="Previous image">‹</button>
+      <button class="pdp__nav pdp__nav--next" id="pdpNext" type="button" aria-label="Next image">›</button>
+      <div class="pdp__dots" id="pdpDots"></div>
+      <div class="pdp__bar" aria-hidden="true"><i id="pdpBar"></i></div>
+    </div>
+
+    <div class="pdp__info">
+      <p class="card__jp" id="pdpJp"></p>
+      <h3 class="pdp__title" id="pdpTitle"></h3>
+      <p class="pdp__desc" id="pdpDesc"></p>
+      <p class="pdp__note">Sample product — more variants available in store.</p>
+    </div>
+  </div>
 </div>
 
 <!-- === COPY TOAST === -->

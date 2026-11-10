@@ -259,6 +259,167 @@
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
 
   /* ----------------------------------------------------------
+     PRODUCT DIALOG — expandable gallery + 3s autoplay carousel
+     ---------------------------------------------------------- */
+  const pdp = document.getElementById("pdp");
+  const pdpPanel = pdp && pdp.querySelector(".pdp__panel");
+  const pdpTrack = document.getElementById("pdpTrack");
+  const pdpDots = document.getElementById("pdpDots");
+  const pdpStage = pdp && pdp.querySelector(".pdp__stage");
+  const pdpClose = document.getElementById("pdpClose");
+  const pdpPrev = document.getElementById("pdpPrev");
+  const pdpNext = document.getElementById("pdpNext");
+  const pdpBar = document.getElementById("pdpBar");
+  const pdpJp = document.getElementById("pdpJp");
+  const pdpTitle = document.getElementById("pdpTitle");
+  const pdpDesc = document.getElementById("pdpDesc");
+
+  let pdpSlides = [];
+  let pdpIndex = 0;
+  let pdpTimer = null;
+  let pdpLastFocus = null;
+
+  const pdpGoTo = (i) => {
+    if (!pdpSlides.length) return;
+    pdpIndex = (i + pdpSlides.length) % pdpSlides.length;
+    pdpSlides.forEach((s, k) => s.classList.toggle("is-on", k === pdpIndex));
+    if (pdpDots) {
+      [...pdpDots.children].forEach((d, k) => {
+        d.classList.toggle("is-on", k === pdpIndex);
+        d.setAttribute("aria-selected", String(k === pdpIndex));
+      });
+    }
+    if (pdpBar) {
+      pdpBar.classList.remove("is-run");
+      void pdpBar.offsetWidth;
+      pdpBar.classList.add("is-run");
+    }
+  };
+
+  const pdpStop = () => { if (pdpTimer) { clearInterval(pdpTimer); pdpTimer = null; } };
+  const pdpStart = () => {
+    pdpStop();
+    if (!pdp || pdp.hidden || !pdpSlides.length) return;
+    pdpTimer = setInterval(() => pdpGoTo(pdpIndex + 1), 3000);
+  };
+
+  const openPDP = (card) => {
+    if (!pdp || !pdpTrack) return;
+    pdpLastFocus = document.activeElement;
+
+    const jp = card.querySelector(".card__jp");
+    const h3 = card.querySelector("h3");
+    const desc = card.querySelector(".card__desc");
+    if (pdpJp) pdpJp.textContent = jp ? jp.textContent : "";
+    if (pdpTitle) pdpTitle.textContent = h3 ? h3.textContent : "";
+    if (pdpDesc) pdpDesc.textContent = desc ? desc.textContent : "";
+
+    pdpTrack.innerHTML = "";
+    if (pdpDots) pdpDots.innerHTML = "";
+
+    const art = card.querySelector(".card__media svg");
+    const slides = [];
+    const first = document.createElement("figure");
+    first.className = "pdp__slide";
+    if (art) first.appendChild(art.cloneNode(true));
+    slides.push(first);
+
+    const tpl = card.querySelector(".card__tpl");
+    if (tpl && tpl.content) {
+      tpl.content.querySelectorAll("figure").forEach((fig) => {
+        const clone = fig.cloneNode(true);
+        clone.classList.add("pdp__slide");
+        slides.push(clone);
+      });
+    }
+
+    slides.forEach((s, k) => {
+      pdpTrack.appendChild(s);
+      if (!pdpDots) return;
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "pdp__dot" + (k === 0 ? " is-on" : "");
+      dot.setAttribute("aria-label", `Image ${k + 1} of ${slides.length}`);
+      dot.setAttribute("aria-selected", String(k === 0));
+      dot.addEventListener("click", () => { pdpGoTo(k); pdpStart(); });
+      pdpDots.appendChild(dot);
+    });
+
+    pdpSlides = slides;
+    pdpIndex = 0;
+
+    pdp.hidden = false;
+    requestAnimationFrame(() => pdp.classList.add("is-open"));
+    document.body.style.overflow = "hidden";
+    if (lenis) lenis.stop();
+    pdpClose && pdpClose.focus();
+    pdpGoTo(0);
+    pdpStart();
+  };
+
+  const closePDP = () => {
+    if (!pdp || pdp.hidden) return;
+    pdpStop();
+    pdp.classList.remove("is-open");
+    document.body.style.overflow = "";
+    if (lenis) lenis.start();
+    setTimeout(() => {
+      pdp.hidden = true;
+      if (pdpTrack) pdpTrack.innerHTML = "";
+      pdpSlides = [];
+    }, 340);
+    pdpLastFocus && pdpLastFocus.focus();
+  };
+
+  document.querySelectorAll('.card[role="button"]').forEach((card) => {
+    card.addEventListener("click", () => openPDP(card));
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openPDP(card);
+      }
+    });
+  });
+  pdpClose && pdpClose.addEventListener("click", closePDP);
+  pdp && pdp.addEventListener("click", (e) => { if (e.target === pdp) closePDP(); });
+  pdpPrev && pdpPrev.addEventListener("click", () => { pdpGoTo(pdpIndex - 1); pdpStart(); });
+  pdpNext && pdpNext.addEventListener("click", () => { pdpGoTo(pdpIndex + 1); pdpStart(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closePDP(); });
+
+  /* focus trap inside the dialog */
+  pdp && pdp.addEventListener("keydown", (e) => {
+    if (e.key !== "Tab") return;
+    const items = [...pdp.querySelectorAll("button, [href], [tabindex]:not([tabindex='-1'])")]
+      .filter((el) => el.offsetParent !== null || el === document.activeElement);
+    if (!items.length) return;
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+
+  /* swipe between slides on the stage */
+  let touchX = null;
+  if (pdpStage) {
+    pdpStage.addEventListener("touchstart", (e) => { touchX = e.changedTouches[0].clientX; }, { passive: true });
+    pdpStage.addEventListener("touchend", (e) => {
+      if (touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      touchX = null;
+      if (Math.abs(dx) < 48) return;
+      pdpGoTo(pdpIndex + (dx < 0 ? 1 : -1));
+      pdpStart();
+    }, { passive: true });
+  }
+
+  /* pause when the tab is hidden */
+  document.addEventListener("visibilitychange", () => {
+    if (!pdp || pdp.hidden) return;
+    if (document.hidden) pdpStop();
+    else pdpStart();
+  });
+
+  /* ----------------------------------------------------------
      BRAND POST — mouse tilt
      ---------------------------------------------------------- */
   const phone = document.getElementById("phone");

@@ -32,10 +32,11 @@ tokyo-pocket/
   main.js           Lenis, GSAP data-attribute animation system, interactions
   README.md
   assets/
-    fonts/          Rushk.woff2 / Rushk.otf   ← YOU SUPPLY THESE
+    fonts/          Rushk.woff2               (self-hosted display accent)
     logo/           primary.png, primary-white-bg.png, secondary.png
     owners/         brandon.jpg, winston.jpg, ana.jpg, jose.jpg   ← placeholders in use
-    products/       fruit-cream.jpg, egg.jpg, fried-cream.jpg      ← placeholders in use
+    products/       fruit-cream.jpg, egg.jpg, fried-cream.jpg      ← card art (slide 1)
+                      fruit-cream-2/3.jpg, egg-2/3.jpg, fried-cream-2/3.jpg  ← gallery (placeholders)
     drinks/         matcha-latte.jpg, hojicha-latte.jpg, milk-tea.jpg, brown-sugar-milk.jpg
     posts/          first-brand-post.png        (copied from Tokyo Pocket _ CT#2)
     poster/         event-poster.png            (copied from Tokyo Pocket _ CT#3)
@@ -68,29 +69,37 @@ Portrait **3:4** works best — the frame is `object-fit: cover`, so any
 portrait crop will fill cleanly. Roles (`Co-Founder`) are plain text in the
 same block; edit them there.
 
-### 2. Rushk display font (mandatory, not on Google Fonts)
+### 2. Rushk display font (self-hosted, not on Google Fonts)
 
-Put your licensed files here — the `@font-face` in `styles.css` is already
-wired up:
+Already in place — `assets/fonts/Rushk.woff2` (subset to `U+0020-007E`, the
+font's full 93-glyph charset, 706 KB) with `@font-face` in `styles.css` wired
+up and a matching `<link rel="preload">` in `index.html`.
 
-```
-assets/fonts/Rushk.woff2
-assets/fonts/Rushk.otf
-```
+To swap in a different/licensed cut, replace the file and keep the same name.
+**Do not change the `font-family` name** — it stays `"Rushk"`.
 
-Until the files exist the site falls back to Fredoka (marked
-`<!-- REPLACE: assets/fonts/Rushk.woff2 -->` in `styles.css`).
-**Do not change the `font-family` name** — only add the files.
+### 3. Product photos (card + expandable gallery)
 
-### 3. Product photos
+Clicking a card opens a gallery dialog (~70vw) whose carousel auto-advances
+every 3 seconds — dots, arrows and swipe navigate it too.
 
-Inline SVG illustrations are used so the parallax sandwich works out of the box.
-To use real photography, add e.g. `assets/products/fruit-cream.jpg` and swap
-the `<svg>` inside `<figure class="card__media">` for:
+Slide 1 is the card's own `<svg>` inside `<figure class="card__media">`.
+Slides 2–3 are the two `<figure class="pdp__ph">` placeholders inside the
+card's `<template class="card__tpl">`.
+
+To use real photography:
+
+1. add e.g. `assets/products/fruit-cream.jpg` and swap the card's `<svg>` for
+   `<img src="assets/products/fruit-cream.jpg" alt="Fruit cream sandwich" loading="lazy">`
+2. replace each placeholder figure in that card's `<template class="card__tpl">` with:
 
 ```html
-<img src="assets/products/fruit-cream.jpg" alt="Fruit cream sandwich" loading="lazy">
+<figure class="pdp__slide">
+  <img src="assets/products/fruit-cream-2.jpg" alt="Fruit cream sandwich, close-up" loading="lazy">
+</figure>
 ```
+
+Repeat for `egg-2/3.jpg` and `fried-cream-2/3.jpg` (any 4:3 crop fills the stage).
 
 ### 4. Sandwich layers (the scroll-scrubbed assembly)
 
