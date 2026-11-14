@@ -23,8 +23,8 @@
   --r-lg:26px;
   --r-pill:999px;
 
-  --shadow-soft:0 18px 40px -22px rgba(74,5,10,.45);
-  --shadow-lift:0 26px 60px -26px rgba(74,5,10,.55);
+  --shadow-soft:0px 0px 4px 0px rgba(0,0,0,.04), 0px 4px 8px 0px rgba(0,0,0,.06), 0px 0px 0px 1px rgba(0,0,0,.05);
+  --shadow-lift:0px 0px 4px 0px rgba(0,0,0,.05), 0px 8px 16px 0px rgba(0,0,0,.09), 0px 0px 0px 1px rgba(0,0,0,.06);
 
   --ease-slide:cubic-bezier(.77,0,.18,1);
   --ease-out:cubic-bezier(.16,1,.3,1);
@@ -58,6 +58,7 @@ p{margin:0 0 1em}
 ul,ol{margin:0;padding:0;list-style:none}
 a{color:inherit}
 button{font:inherit;color:inherit}
+img{-webkit-user-select:none;-webkit-user-drag:none;user-select:none}
 code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9em;background:rgba(197,16,29,.09);padding:.1em .4em;border-radius:6px}
 
 .wrap{width:min(100% - 2.5rem, var(--wrap));margin-inline:auto}
@@ -207,6 +208,13 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9em;background
     radial-gradient(900px 560px at 8% 88%, rgba(222,191,152,.35), transparent 60%),
     var(--cream);
 }
+.hero::before{
+  content:"";position:absolute;inset:-8%;z-index:0;pointer-events:none;
+  background:url("assets/elements/wave pattern.png") repeat;
+  background-size:clamp(360px,38vw,640px);
+  mix-blend-mode:multiply;opacity:.14;
+  animation:waveDrift 70s linear infinite;
+}
 .hero__inner{position:relative;z-index:3;text-align:center;max-width:960px}
 
 .hero__badge{
@@ -254,12 +262,17 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9em;background
 
 /* petals + tiny sandos */
 .hero__deco{position:absolute;inset:0;z-index:1;pointer-events:none}
+/* petals — full-screen fixed layer */
+.petals-fx{
+  position:fixed;inset:0;z-index:100;pointer-events:none;overflow:hidden;
+}
+@media (prefers-reduced-motion:reduce){ .petals-fx{display:none} }
 .petal{
   position:absolute;top:-6%;left:var(--x);
   width:calc(20px * var(--s));height:calc(14px * var(--s));
   background:var(--pink);opacity:.55;
   border-radius:60% 10% 60% 10%;
-  animation:fall 13s linear var(--d) infinite;
+  animation:fall var(--dur,13s) linear var(--d) infinite;
   will-change:transform;
 }
 .petal:nth-child(even){background:var(--red);opacity:.32;border-radius:60% 10% 60% 10%;transform:rotate(24deg)}
@@ -839,37 +852,61 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.9em;background
   transition:transform .2s ease-out;
   will-change:transform;
 }
-.ig-head{display:flex;align-items:center;gap:.7rem;padding:.85rem 1rem}
-.ig-avatar{
-  width:34px;height:34px;border-radius:50%;
+.fb-head{display:flex;align-items:center;gap:.65rem;padding:.9rem 1rem .45rem}
+.fb-avatar{
+  width:40px;height:40px;border-radius:50%;
   background:conic-gradient(from 210deg, var(--red), var(--pink), var(--sand), var(--red));
-  box-shadow:0 0 0 2px #fff, 0 0 0 4px var(--red);
-  flex:none;
+  box-shadow:0 0 0 2px #fff, 0 0 0 3px var(--red);
+  display:grid;place-items:center;
+  font-family:var(--font-display);font-weight:700;font-size:.78rem;color:#fff;
+  flex:none;letter-spacing:.02em;
 }
-.ig-user{font-weight:800;font-size:.9rem;color:var(--burgundy);flex:1}
-.ig-dots{color:rgba(34,34,34,.5);letter-spacing:.1em}
-.ig-img{width:100%;aspect-ratio:1/1;object-fit:cover;background:var(--cream)}
-.ig-actions{display:flex;align-items:center;gap:.85rem;padding:.85rem 1rem .3rem}
-.heart{
-  border:0;background:transparent;padding:0;cursor:pointer;line-height:0;
-  color:var(--red);transition:transform .3s var(--ease-out);
+.fb-user{display:flex;flex-direction:column;line-height:1.3;flex:1;min-width:0}
+.fb-name{font-weight:800;font-size:.93rem;color:var(--red)}
+.fb-time{font-size:.73rem;color:#65676B}
+.fb-dots{color:#65676B;letter-spacing:.1em;font-weight:700}
+.fb-text{
+  margin:0;padding:.3rem 1rem .7rem;font-size:.87rem;line-height:1.55;color:#050505;
 }
-.heart svg{width:26px;height:26px;fill:currentColor;transition:fill .25s, transform .3s}
-.heart[aria-pressed="true"] svg{fill:var(--red)}
-.heart.is-bounce{animation:pop .5s var(--ease-out)}
-@keyframes pop{0%{transform:scale(1)}35%{transform:scale(1.35)}70%{transform:scale(.94)}100%{transform:scale(1)}}
-.ig-count{font-weight:800;font-size:.88rem;color:var(--burgundy);margin-right:auto}
-.ig-ico{color:var(--burgundy);line-height:0}
-.ig-ico svg{width:23px;height:23px}
-.ig-caption{
-  padding:.3rem 1rem 1.3rem;font-size:.86rem;line-height:1.65;color:rgba(34,34,34,.88);margin:0;
-}
-.ig-caption .line-typed{
+.fb-text .line-typed{
   display:block;opacity:0;transform:translateY(6px);
   transition:opacity .5s, transform .5s;
 }
-.ig-caption .line-typed.is-in{opacity:1;transform:none}
-.ig-caption .line-typed:first-child{font-weight:800;color:var(--burgundy)}
+.fb-text .line-typed.is-in{opacity:1;transform:none}
+.fb-text .line-typed:first-child{font-weight:800;color:var(--burgundy)}
+.fb-img{width:100%;aspect-ratio:1/1;object-fit:cover;background:var(--cream)}
+.fb-counts{
+  display:flex;align-items:center;justify-content:space-between;gap:.6rem;
+  padding:.55rem 1rem;font-size:.8rem;color:#65676B;
+}
+.fb-reactions{display:flex;align-items:center;gap:.42rem;font-weight:600}
+.fb-reaction{
+  width:18px;height:18px;border-radius:50%;background:var(--red);
+  display:grid;place-items:center;color:#fff;flex:none;
+  box-shadow:0 0 0 1.5px #fff;
+}
+.fb-reaction svg{width:10px;height:10px;display:block}
+.fb-actions{
+  display:flex;gap:.2rem;padding:.25rem .6rem;
+  border-top:1px solid #E4E6EB;
+}
+.fb-btn{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:.45rem;
+  border:0;background:transparent;padding:.6rem .3rem;border-radius:6px;
+  font-size:.85rem;font-weight:700;color:#65676B;
+  transition:background .2s, color .2s;
+}
+.fb-btn__label{white-space:nowrap}
+button.fb-btn{cursor:pointer;font-family:inherit}
+.fb-btn svg{width:18px;height:18px;flex:none}
+.fb-btn:hover{background:#F0F2F5}
+.heart{
+  transition:background .25s, color .25s, transform .3s var(--ease-out);
+}
+.heart[aria-pressed="true"]{color:var(--red);background:rgba(197,16,29,.1)}
+.heart[aria-pressed="true"] svg path{stroke:var(--red)}
+.heart.is-bounce{animation:pop .5s var(--ease-out)}
+@keyframes pop{0%{transform:scale(1)}35%{transform:scale(1.35)}70%{transform:scale(.94)}100%{transform:scale(1)}}
 
 /* ============================================================
    3.7 POSTER

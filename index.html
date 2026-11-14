@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tokyo Pocket — Good Taste Fits Right Here.</title>
+<link rel="icon" href="assets/logo/primary-svg.svg" type="image/svg+xml">
 <meta name="description" content="Tokyo Pocket — a vibrant Japanese café experience, folded into one delicious, portable bite. Fresh flavor travels with you.">
 
 <!-- === PRELOAD FONTS === -->
@@ -178,7 +179,7 @@
       <!-- 1 -->
       <button class="door" type="button" aria-expanded="false" data-reveal="up">
         <span class="door__back">
-          <span class="door__photo door__photo--ghost" aria-hidden="true"><img src="assets/owners/ghost.png" alt="" width="1365" height="1600" loading="lazy"></span>
+          <span class="door__photo " aria-hidden="true"><img src="assets/owners/brandon.png" alt="brandon jake dela cruz"></span>
           <span class="door__meta">
             <span class="door__name">Brandon Jake Dela Cruz</span>
             <span class="door__role">BSIT 4C</span>
@@ -210,7 +211,7 @@
       <!-- 3 -->
       <button class="door" type="button" aria-expanded="false" data-reveal="up">
         <span class="door__back">
-          <span class="door__photo door__photo--ghost" aria-hidden="true"><img src="assets/owners/ghost.png" alt="" width="1365" height="1600" loading="lazy"></span>
+          <span class="door__photo " aria-hidden="true"><img src="assets/owners/ana.png" alt="ana leah marcelo" ></span>
           <span class="door__meta">
             <span class="door__name">Ana Leah Marcelo</span>
             <span class="door__role">BSIT 4C</span>
@@ -226,7 +227,7 @@
       <!-- 4 -->
       <button class="door" type="button" aria-expanded="false" data-reveal="up">
         <span class="door__back">
-          <span class="door__photo door__photo--ghost" aria-hidden="true"><img src="assets/owners/ghost.png" alt="" width="1365" height="1600" loading="lazy"></span>
+          <span class="door__photo " aria-hidden="true"><img src="assets/owners/jose.png" alt="jose olinares" ></span>
           <span class="door__meta">
             <span class="door__name">Jose Olinares</span>
             <span class="door__role">BSIT 4C</span>
@@ -568,36 +569,51 @@
 
     <div class="phone" id="phone" data-reveal="scale" data-cursor="View">
       <div class="phone__screen">
-        <div class="ig-head">
-          <span class="ig-avatar" aria-hidden="TP"></span>
-          <span class="ig-user">tokyopocket.co</span>
-          <span class="ig-dots" aria-hidden="true">•••</span>
+        <div class="fb-head">
+          <span class="fb-avatar" aria-hidden="true">TP</span>
+          <span class="fb-user">
+            <span class="fb-name">Regen</span>
+            <span class="fb-time">September 19 · </span>
+          </span>
+          <span class="fb-dots" aria-hidden="true">•••</span>
         </div>
 
-        <img class="ig-img" src="assets/posts/first-brand-post.png"
-             alt="Tokyo Pocket first brand post: two fruit cream sandos on a plate with the line Good Taste Fits Right Here."
-             width="612" height="612" loading="lazy">
-
-        <div class="ig-actions">
-          <button class="heart" id="heart" type="button" aria-pressed="false" aria-label="Like this post">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.6-9.2C.7 8.3 2.6 4.7 6.1 4.2c2.1-.3 4 .7 5 2.4 1-1.7 2.9-2.7 5-2.4 3.5.5 5.4 4.1 3.7 7.6C19.5 16.3 12 21 12 21z"/></svg>
-          </button>
-          <span class="ig-count" id="likeCount">128</span>
-          <span class="ig-ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.5-5A8 8 0 1 1 21 12z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
-          </span>
-          <span class="ig-ico" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M22 3 11 14M22 3l-7 19-4-8-8-4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-          </span>
-        </div>
-
-        <p class="ig-caption" id="caption">
+        <p class="fb-text" id="caption">
           <span class="line-typed">Deserve mo ’to.</span>
           <span class="line-typed">Beh, celebrate every achievement—big or small—</span>
           <span class="line-typed">with a delicious sando made just for you.</span>
           <span class="line-typed">A little taste of Tokyo, right here,</span>
           <span class="line-typed">right in your pocket.</span>
         </p>
+
+        <img class="fb-img" src="assets/posts/first-brand-post.png"
+             alt="Tokyo Pocket first brand post: two fruit cream sandos on a plate with the line Good Taste Fits Right Here."
+             width="612" height="612" loading="lazy">
+
+        <div class="fb-counts">
+          <span class="fb-reactions">
+            <span class="fb-reaction" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-7.5-4.7-9.6-9.2C.7 8.3 2.6 4.7 6.1 4.2c2.1-.3 4 .7 5 2.4 1-1.7 2.9-2.7 5-2.4 3.5.5 5.4 4.1 3.7 7.6C19.5 16.3 12 21 12 21z"/></svg>
+            </span>
+            <span id="likeCount">153</span>
+          </span>
+          <span class="fb-comments">31 comments · 7 shares</span>
+        </div>
+
+        <div class="fb-actions">
+          <button class="fb-btn heart" id="heart" type="button" aria-pressed="false" aria-label="Like this post">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M7 10.5 11.4 3c.3-.5 1-.7 1.6-.4.5.3.8 1 .6 1.6L14.6 9H20a2 2 0 0 1 2 2.4l-1.4 8A2 2 0 0 1 18.6 21H7M7 10.5V21M2 11h5v10H2z"/></svg>
+            <span class="fb-btn__label">Like</span>
+          </button>
+          <span class="fb-btn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.5-5A8 8 0 1 1 21 12z"/></svg>
+            <span class="fb-btn__label">Comment</span>
+          </span>
+          <span class="fb-btn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M22 3 11 14M22 3l-7 19-4-8-8-4z"/></svg>
+            <span class="fb-btn__label">Share</span>
+          </span>
+        </div>
       </div>
     </div>
 
@@ -741,6 +757,9 @@
 
 <!-- === COPY TOAST === -->
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- === FALLING SAKURA (whole screen) === -->
+<div class="petals-fx" id="petalsFx" aria-hidden="true"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
