@@ -211,6 +211,24 @@
   });
 
   /* ----------------------------------------------------------
+     TYPE TESTER
+     ---------------------------------------------------------- */
+  const testerInput = document.querySelector(".tester__input");
+  document.querySelectorAll(".tester__chip").forEach((chip) => {
+    chip.addEventListener("click", () => {
+      document.querySelectorAll(".tester__chip").forEach((c) => {
+        const on = c === chip;
+        c.classList.toggle("is-on", on);
+        c.setAttribute("aria-pressed", String(on));
+      });
+      if (testerInput) {
+        testerInput.className = "tester__input tester__input--" + chip.dataset.font;
+        testerInput.focus();
+      }
+    });
+  });
+
+  /* ----------------------------------------------------------
      HEART / LIKE
      ---------------------------------------------------------- */
   const heart = document.getElementById("heart");
@@ -267,8 +285,6 @@
   const pdpDots = document.getElementById("pdpDots");
   const pdpStage = pdp && pdp.querySelector(".pdp__stage");
   const pdpClose = document.getElementById("pdpClose");
-  const pdpPrev = document.getElementById("pdpPrev");
-  const pdpNext = document.getElementById("pdpNext");
   const pdpBar = document.getElementById("pdpBar");
   const pdpJp = document.getElementById("pdpJp");
   const pdpTitle = document.getElementById("pdpTitle");
@@ -278,15 +294,110 @@
   let pdpIndex = 0;
   let pdpTimer = null;
   let pdpLastFocus = null;
+  let pdpIdleTimer = null;
+  let pdpBusy = false;
+  let pdpBusyTimer = null;
+  let pdpZTimer = null;
 
-  const pdpGoTo = (i) => {
+  const pdpFloats = pdp ? [...pdp.querySelectorAll(".pdp__float")] : [];
+  const pdpBg = pdp && pdp.querySelector(".pdp__bg");
+  const pdpCircleHold = pdp && pdp.querySelector(".pdp__circle-hold");
+  const pdpInfoHold = pdp && pdp.querySelector(".pdp__info-hold");
+
+  /* mouse-driven depth parallax + gentle idle bob on the floats */
+  if (pdp && hasGSAP && !reduceMotion) {
+    const movers = pdpFloats.concat(pdpBg || []).map((el) => ({
+      x: gsap.quickTo(el, "x", { duration: 0.8, ease: "power3.out" }),
+      y: gsap.quickTo(el, "y", { duration: 0.8, ease: "power3.out" }),
+      d: el === pdpBg ? -0.12 : (parseFloat(el.dataset.depth) || 0.3)
+    }));
+    if (canHover) {
+      pdp.addEventListener("pointermove", (e) => {
+        const nx = e.clientX / window.innerWidth - 0.5;
+        const ny = e.clientY / window.innerHeight - 0.5;
+        movers.forEach((m) => { m.x(nx * 80 * m.d); m.y(ny * 62 * m.d); });
+      }, { passive: true });
+    }
+    pdpFloats.forEach((f, i) => {
+      gsap.to(f, {
+        yPercent: i % 2 ? 2.6 : -2.6,
+        duration: 2.9 + i * 0.35,
+        ease: "sine.inOut", yoyo: true, repeat: -1, delay: i * 0.28
+      });
+    });
+  }
+
+  /* controls idle-fade — reappear on pointer activity */
+  const pdpWake = () => {
+    if (!pdp || pdp.hidden) return;
+    pdp.classList.remove("is-idle");
+    clearTimeout(pdpIdleTimer);
+    pdpIdleTimer = setTimeout(() => pdp.classList.add("is-idle"), 2800);
+  };
+  if (pdp) {
+    pdp.addEventListener("pointermove", pdpWake, { passive: true });
+    pdp.addEventListener("click", pdpWake, { passive: true });
+  }
+
+  const pdpIntro = () => {
+    if (!pdp || !hasGSAP || reduceMotion) return;
+    const active = [...pdp.querySelectorAll(".pdp__float.is-active")];
+    if (pdpBg) gsap.fromTo(pdpBg, { opacity: 0 }, { opacity: 1, duration: 0.55, overwrite: "auto" });
+    if (pdpCircleHold) gsap.fromTo(pdpCircleHold, { y: -120, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", overwrite: "auto" });
+    if (pdpInfoHold) gsap.fromTo(pdpInfoHold, { y: 52, opacity: 0 }, { y: 0, opacity: 1, duration: 0.75, delay: 0.12, ease: "power3.out", overwrite: "auto" });
+    if (active.length) gsap.fromTo(active, { scale: 0.82, opacity: 0 },
+      { scale: 1, opacity: 1, duration: 0.75, stagger: 0.07, ease: "power3.out", clearProps: "opacity,scale", overwrite: "auto" });
+  };
+
+  /* variant slot carousel: assign center/left/right slots, choreograph z-order —
+     the slide crossing from one side to the other passes BEHIND the center hero */
+  const pdpGoTo = (i, instant) => {
     if (!pdpSlides.length) return;
-    pdpIndex = (i + pdpSlides.length) % pdpSlides.length;
-    pdpSlides.forEach((s, k) => s.classList.toggle("is-on", k === pdpIndex));
+    const n = pdpSlides.length;
+    const target = ((i % n) + n) % n;
+    if (target === pdpIndex && !instant) {
+      if (pdpBar) { pdpBar.classList.remove("is-run"); void pdpBar.offsetWidth; pdpBar.classList.add("is-run"); }
+      return;
+    }
+    const prev = pdpIndex;
+    let d = target - prev;
+    if (d > n / 2) d -= n;
+    if (d < -n / 2) d += n;
+    pdpIndex = target;
+
+    const c = target;
+    const l = (target - 1 + n) % n;
+    const r = (target + 1) % n;
+    const oldL = (prev - 1 + n) % n;
+    const oldR = (prev + 1) % n;
+
+    pdpSlides.forEach((s, k) => {
+      s.classList.remove("is-on", "is-l", "is-r", "is-behind", "is-incoming");
+      if (k === c) s.classList.add("is-on");
+      else if (k === l) s.classList.add("is-l");
+      else if (k === r) s.classList.add("is-r");
+    });
+
+    if (!instant && d !== 0) {
+      const behind = new Set();
+      const incoming = pdpSlides[c];
+      if (incoming) incoming.classList.add("is-incoming");
+      if (d > 0) { behind.add(pdpSlides[oldL]); behind.add(pdpSlides[r]); }
+      else { behind.add(pdpSlides[oldR]); behind.add(pdpSlides[l]); }
+      behind.forEach((s) => s && s.classList.add("is-behind"));
+      clearTimeout(pdpZTimer);
+      pdpZTimer = setTimeout(() => {
+        pdpSlides.forEach((s) => s && s.classList.remove("is-behind", "is-incoming"));
+      }, 760);
+      pdpBusy = true;
+      clearTimeout(pdpBusyTimer);
+      pdpBusyTimer = setTimeout(() => { pdpBusy = false; }, 430);
+    }
+
     if (pdpDots) {
-      [...pdpDots.children].forEach((d, k) => {
-        d.classList.toggle("is-on", k === pdpIndex);
-        d.setAttribute("aria-selected", String(k === pdpIndex));
+      [...pdpDots.children].forEach((d2, k) => {
+        d2.classList.toggle("is-on", k === pdpIndex);
+        d2.setAttribute("aria-selected", String(k === pdpIndex));
       });
     }
     if (pdpBar) {
@@ -300,6 +411,7 @@
   const pdpStart = () => {
     pdpStop();
     if (!pdp || pdp.hidden || !pdpSlides.length) return;
+    if (pdp.classList.contains("is-hold")) return;
     pdpTimer = setInterval(() => pdpGoTo(pdpIndex + 1), 3000);
   };
 
@@ -317,7 +429,7 @@
     pdpTrack.innerHTML = "";
     if (pdpDots) pdpDots.innerHTML = "";
 
-    const art = card.querySelector(".card__media svg");
+    const art = card.querySelector(".card__media img, .card__media svg");
     const slides = [];
     const first = document.createElement("figure");
     first.className = "pdp__slide";
@@ -335,13 +447,18 @@
 
     slides.forEach((s, k) => {
       pdpTrack.appendChild(s);
+      s.addEventListener("click", () => {
+        if (pdpBusy || k === pdpIndex) return;
+        pdpGoTo(k);
+        pdpStart();
+      });
       if (!pdpDots) return;
       const dot = document.createElement("button");
       dot.type = "button";
       dot.className = "pdp__dot" + (k === 0 ? " is-on" : "");
       dot.setAttribute("aria-label", `Image ${k + 1} of ${slides.length}`);
       dot.setAttribute("aria-selected", String(k === 0));
-      dot.addEventListener("click", () => { pdpGoTo(k); pdpStart(); });
+      dot.addEventListener("click", () => { if (pdpBusy) return; pdpGoTo(k); pdpStart(); });
       pdpDots.appendChild(dot);
     });
 
@@ -353,13 +470,21 @@
     document.body.style.overflow = "hidden";
     if (lenis) lenis.stop();
     pdpClose && pdpClose.focus();
-    pdpGoTo(0);
+    pdpGoTo(0, true);
     pdpStart();
+    pdpIntro();
+    pdpWake();
   };
 
   const closePDP = () => {
     if (!pdp || pdp.hidden) return;
     pdpStop();
+    clearTimeout(pdpIdleTimer);
+    clearTimeout(pdpBusyTimer);
+    clearTimeout(pdpZTimer);
+    pdpBusy = false;
+    pdp.classList.remove("is-idle");
+    pdp.classList.remove("is-hold");
     pdp.classList.remove("is-open");
     document.body.style.overflow = "";
     if (lenis) lenis.start();
@@ -382,9 +507,21 @@
   });
   pdpClose && pdpClose.addEventListener("click", closePDP);
   pdp && pdp.addEventListener("click", (e) => { if (e.target === pdp) closePDP(); });
-  pdpPrev && pdpPrev.addEventListener("click", () => { pdpGoTo(pdpIndex - 1); pdpStart(); });
-  pdpNext && pdpNext.addEventListener("click", () => { pdpGoTo(pdpIndex + 1); pdpStart(); });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") closePDP(); });
+
+  /* autoplay pauses while hovering the stage so side variants stay clickable */
+  if (pdp && pdpStage && canHover) {
+    pdpStage.addEventListener("pointerenter", () => {
+      pdpStop();
+      pdp.classList.add("is-hold");
+    });
+    pdpStage.addEventListener("pointerleave", () => {
+      pdp.classList.remove("is-hold");
+      if (pdp.hidden) return;
+      pdpGoTo(pdpIndex, true);
+      pdpStart();
+    });
+  }
 
   /* focus trap inside the dialog */
   pdp && pdp.addEventListener("keydown", (e) => {
@@ -406,7 +543,7 @@
       if (touchX === null) return;
       const dx = e.changedTouches[0].clientX - touchX;
       touchX = null;
-      if (Math.abs(dx) < 48) return;
+      if (Math.abs(dx) < 48 || pdpBusy) return;
       pdpGoTo(pdpIndex + (dx < 0 ? 1 : -1));
       pdpStart();
     }, { passive: true });
@@ -447,7 +584,6 @@
       if (i === 3) { b.style.opacity = "1"; b.style.transform = "none"; }
     });
     document.querySelectorAll(".line-typed").forEach((l) => l.classList.add("is-in"));
-    document.querySelectorAll(".step").forEach((s) => s.classList.add("is-drawn"));
     return;
   }
 
@@ -580,12 +716,12 @@
       }, { passive: true });
     }
 
-    /* floating sandwich — sine loop on the inner svg (outer handles parallax) */
+    /* floating sandwich photo — sine loop on the inner img (outer handles parallax) */
     const sando = hero.querySelector(".hero__sando");
-    const sandoSvg = sando && sando.querySelector("svg");
-    if (sandoSvg) {
-      gsap.to(sandoSvg, { y: -16, duration: 2.4, ease: "sine.inOut", yoyo: true, repeat: -1 });
-      gsap.to(sandoSvg, { rotation: 3, duration: 3.6, ease: "sine.inOut", yoyo: true, repeat: -1, transformOrigin: "50% 60%" });
+    const sandoImg = sando && sando.querySelector("img");
+    if (sandoImg) {
+      gsap.to(sandoImg, { y: -16, duration: 2.4, ease: "sine.inOut", yoyo: true, repeat: -1 });
+      gsap.to(sandoImg, { rotation: 3, duration: 3.6, ease: "sine.inOut", yoyo: true, repeat: -1, transformOrigin: "50% 60%" });
       gsap.to(sando, {
         yPercent: -18, ease: "none",
         scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: true }
@@ -611,42 +747,14 @@
     });
   }
 
-  const tlPath = document.getElementById("timelinePath");
-  if (tlPath) {
-    const len = tlPath.getTotalLength();
-    gsap.set(tlPath, { strokeDasharray: len, strokeDashoffset: len, stroke: "var(--red)", strokeWidth: 4 });
-    gsap.to(tlPath, {
-      strokeDashoffset: 0, ease: "none",
-      scrollTrigger: { trigger: "#timeline", start: "top 78%", end: "top 30%", scrub: 0.5 }
-    });
-  }
-  gsap.utils.toArray(".step").forEach((step) => {
-    ScrollTrigger.create({
-      trigger: step, start: "top 78%", once: true,
-      onEnter: () => step.classList.add("is-drawn")
-    });
-  });
-
   /* ==========================================================
-     OWNERS — entrance stagger + one door peeks open
+     OWNERS — entrance stagger
      ========================================================== */
   if (doors.length) {
     gsap.fromTo(doors, { y: 70, opacity: 0 }, {
       y: 0, opacity: 1, duration: 0.9, ease: "power3.out", stagger: 0.12,
       scrollTrigger: { trigger: ".doors", start: "top 82%", once: true },
       onComplete: () => gsap.set(doors, { clearProps: "transform,opacity" })
-    });
-
-    ScrollTrigger.create({
-      trigger: ".doors", start: "top 70%", once: true,
-      onEnter: () => {
-        if (!canHover) return;
-        const first = doors[0];
-        setTimeout(() => {
-          setDoor(first, true);
-          setTimeout(() => setDoor(first, false), 1500);
-        }, 1300);
-      }
     });
   }
 
@@ -734,22 +842,21 @@
       { scale: 1, duration: 0.2, ease: "power2.out", transformOrigin: "50% 50%" },
       0.78
     );
+
+    /* final beat — the assembled stack crossfades into the finished sando */
+    const done = sandwich.querySelector(".sandwich__done");
+    if (done) {
+      gsap.set(done, { xPercent: -50, yPercent: -50, x: 0, y: 0, scale: 0.92, opacity: 0, transformOrigin: "50% 50%" });
+      tl.to(layerEls, { opacity: 0, duration: 0.08, ease: "power1.in" }, 0.88);
+      tl.to(done, { opacity: 1, scale: 1, duration: 0.14, ease: "power2.out" }, 0.88);
+    }
   }
 
-  /* product cards + drinks stagger (batch already covers data-reveal) */
+  /* product cards stagger (batch already covers data-reveal) */
 
   /* ==========================================================
-     LOGO — sketch draw + swatch pop
+     LOGO — swatch pop
      ========================================================== */
-  const sketchStep = document.querySelector(".process__step");
-  if (sketchStep) {
-    gsap.utils.toArray(".process__step").forEach((step) => {
-      ScrollTrigger.create({
-        trigger: step, start: "top 80%", once: true,
-        onEnter: () => step.classList.add("is-drawn")
-      });
-    });
-  }
   ScrollTrigger.batch(".swatch", {
     start: "top 88%", once: true,
     onEnter: (batch) =>
