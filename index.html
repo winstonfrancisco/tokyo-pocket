@@ -30,7 +30,7 @@
 <header class="nav" id="nav">
   <div class="nav__inner">
     <a class="nav__logo" href="#hero" aria-label="Tokyo Pocket — back to top">
-      <img src="assets/logo/primary.png" alt="Tokyo Pocket logo" width="204" height="68">
+      <img src="assets/logo/primary-svg.svg" alt="Tokyo Pocket logo" width="348" height="461">
     </a>
 
     <button class="nav__burger" id="navBurger" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu">
@@ -69,13 +69,17 @@
     <span class="petal" data-depth="0.12" style="--x:93%; --d:4.5s; --s:.55"></span>
     <span class="sando-icon" data-depth="0.34" style="--x:12%; --y:64%; --d:0s"></span>
     <span class="sando-icon" data-depth="0.42" style="--x:84%; --y:28%; --d:2s"></span>
+    <img class="cloud" data-depth="0.10" style="--x:78%; --y:9%"
+         src="assets/elements/cloud.webp" alt="">
+    <img class="cloud cloud--sm" data-depth="0.16" style="--x:5%; --y:34%"
+         src="assets/elements/cloud.webp" alt="">
   </div>
 
   <div class="hero__inner">
-    <p class="hero__badge" data-reveal="fade">
+    <!-- <p class="hero__badge" data-reveal="fade">
       <span class="hanko" aria-hidden="true">東京</span>
       <span>Filipino-made · Tokyo-inspired sandos</span>
-    </p>
+    </p> -->
 
     <h1 class="hero__title" id="heroTitle" data-split>
       <span class="line"><span class="line__in">Welcome to Tokyo,</span></span>
@@ -91,31 +95,14 @@
     </div>
 
     <figure class="hero__brand" data-reveal="scale">
-      <img src="assets/logo/secondary.png" alt="Tokyo Pocket — Good Taste Fits Right Here." width="360" height="180" loading="lazy">
+      <img src="assets/logo/secondary-svg.svg" alt="Tokyo Pocket — Good Taste Fits Right Here." width="741" height="306" loading="lazy">
       <figcaption class="hero__tagline">“Good Taste Fits Right Here.”</figcaption>
     </figure>
   </div>
 
-  <!-- floating sandwich illustration -->
+  <!-- floating sandwich photo -->
   <div class="hero__sando" aria-hidden="true" data-float>
-    <svg viewBox="0 0 220 170" role="presentation">
-      <g class="hs hs--top">
-        <path d="M18 74c0-24 20-40 92-40s92 16 92 40v10H18z" fill="#F3D9AE"/>
-        <path d="M18 74c0-24 20-40 92-40s92 16 92 40" fill="none" stroke="#E0BC85" stroke-width="5"/>
-      </g>
-      <g class="hs hs--cream">
-        <path d="M22 92c14-8 30 6 46-2s28 6 44-2 30 6 46-2 26 4 40-2v18H22z" fill="#FFFDF7"/>
-      </g>
-      <g class="hs hs--fruit">
-        <ellipse cx="70" cy="112" rx="15" ry="12" fill="#E8455C"/>
-        <ellipse cx="112" cy="114" rx="13" ry="11" fill="#7CB342"/>
-        <ellipse cx="152" cy="112" rx="14" ry="12" fill="#FFB300"/>
-      </g>
-      <g class="hs hs--bottom">
-        <path d="M18 124h184v14c0 12-16 20-92 20s-92-8-92-20z" fill="#F3D9AE"/>
-        <path d="M18 138c0 12 16 20 92 20s92-8 92-20" fill="none" stroke="#E0BC85" stroke-width="5"/>
-      </g>
-    </svg>
+    <img src="assets/products/fruit-sandwich-strawberry.png" alt="" width="762" height="630">
   </div>
 
   <a class="hero__scroll" href="#concept" aria-label="Scroll to Business Concept">
@@ -130,14 +117,9 @@
   </svg>
 </div>
 
-<!-- ============================================================
-     3.2 BUSINESS CONCEPT (PT#1)
-     ============================================================ -->
+
 <section class="concept" id="concept" aria-labelledby="conceptTitle">
   <div class="wrap">
-    <header class="sec-head">
-      <h2 class="sec-title" id="conceptTitle" data-reveal="up">Business <em class="font-rushk">Concept</em></h2>
-    </header>
 
     <!-- 1. NAME & TAGLINE -->
     <div class="name-reveal" data-reveal="fade">
@@ -194,12 +176,12 @@
     <div class="doors" data-stagger>
 
       <!-- 1 -->
-      <button class="door" type="button" aria-expanded="false" data-reveal="up" data-cursor="Open">
+      <button class="door" type="button" aria-expanded="false" data-reveal="up">
         <span class="door__back">
-          <span class="door__photo" aria-hidden="true"><span class="initials">BD</span></span>
+          <span class="door__photo door__photo--ghost" aria-hidden="true"><img src="assets/owners/ghost.png" alt="" width="1365" height="1600" loading="lazy"></span>
           <span class="door__meta">
             <span class="door__name">Brandon Jake Dela Cruz</span>
-            <span class="door__role">Co-Founder</span>
+            <span class="door__role">BSIT 4C</span>
           </span>
         </span>
         <span class="door__panel door__panel--l" aria-hidden="true">
@@ -210,12 +192,12 @@
       </button>
 
       <!-- 2 -->
-      <button class="door" type="button" aria-expanded="false" data-reveal="up" data-cursor="Open">
+      <button class="door" type="button" aria-expanded="false" data-reveal="up">
         <span class="door__back">
-          <span class="door__photo" aria-hidden="true"><span class="initials">WF</span></span>
+          <span class="door__photo" aria-hidden="true"><img src="assets/owners/winston.png" alt="winston francisco"></span>
           <span class="door__meta">
             <span class="door__name">Winston Francisco</span>
-            <span class="door__role">Co-Founder</span>
+            <span class="door__role">BSIT 4C</span>
           </span>
         </span>
         <span class="door__panel door__panel--l" aria-hidden="true">
@@ -226,12 +208,12 @@
       </button>
 
       <!-- 3 -->
-      <button class="door" type="button" aria-expanded="false" data-reveal="up" data-cursor="Open">
+      <button class="door" type="button" aria-expanded="false" data-reveal="up">
         <span class="door__back">
-          <span class="door__photo" aria-hidden="true"><span class="initials">AM</span></span>
+          <span class="door__photo door__photo--ghost" aria-hidden="true"><img src="assets/owners/ghost.png" alt="" width="1365" height="1600" loading="lazy"></span>
           <span class="door__meta">
             <span class="door__name">Ana Leah Marcelo</span>
-            <span class="door__role">Co-Founder</span>
+            <span class="door__role">BSIT 4C</span>
           </span>
         </span>
         <span class="door__panel door__panel--l" aria-hidden="true">
@@ -242,12 +224,12 @@
       </button>
 
       <!-- 4 -->
-      <button class="door" type="button" aria-expanded="false" data-reveal="up" data-cursor="Open">
+      <button class="door" type="button" aria-expanded="false" data-reveal="up">
         <span class="door__back">
-          <span class="door__photo" aria-hidden="true"><span class="initials">JO</span></span>
+          <span class="door__photo door__photo--ghost" aria-hidden="true"><img src="assets/owners/ghost.png" alt="" width="1365" height="1600" loading="lazy"></span>
           <span class="door__meta">
             <span class="door__name">Jose Olinares</span>
-            <span class="door__role">Co-Founder</span>
+            <span class="door__role">BSIT 4C</span>
           </span>
         </span>
         <span class="door__panel door__panel--l" aria-hidden="true">
@@ -271,29 +253,28 @@
       <h2 class="sec-title" id="historyTitle" data-reveal="up">The <em class="font-rushk">Story</em></h2>
     </header>
 
-    <div class="timeline" id="timeline">
-      <svg class="timeline__line" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
-        <path id="timelinePath" d="M40 30 H960" fill="none" stroke="var(--red)" stroke-width="4"
-              stroke-linecap="round" stroke-dasharray="10 14"/>
-      </svg>
+    <div class="history__grid">
+      <p class="history__copy" data-reveal="left">
+        It started with a group of <em class="font-rushk accent">friends</em> who loved
+        Japanese sandwich culture. Through <em class="font-rushk accent">weekend experiments</em>
+        at home — soft milk bread, carefully chosen fillings — those late-night tests grew
+        into a brand built on <em class="font-rushk accent">quality</em> and
+        <em class="font-rushk accent">sincerity</em>, one carefully crafted sandwich at a time.
+      </p>
 
-      <ol class="timeline__steps" data-stagger>
-        <li class="step" data-reveal="up">
-          <span class="step__dot" aria-hidden="true">01</span>
-          <h4>Friends</h4>
-          <p>A group who loved Japanese sandwich culture.</p>
-        </li>
-        <li class="step" data-reveal="up">
-          <span class="step__dot" aria-hidden="true">02</span>
-          <h4>Weekend Experiments</h4>
-          <p>Recipes tested at home — soft milk bread, carefully chosen fillings.</p>
-        </li>
-        <li class="step" data-reveal="up">
-          <span class="step__dot" aria-hidden="true">03</span>
-          <h4>Creation</h4>
-          <p>Experiments became a brand built on quality and sincerity.</p>
-        </li>
-      </ol>
+      <div class="history__disc" aria-hidden="true" data-reveal="scale">
+        <svg class="history__wave" viewBox="0 0 200 200" role="presentation">
+          <defs>
+            <pattern id="wavetex" x="0" y="0" width="600" height="600" patternUnits="userSpaceOnUse">
+              <image href="assets/elements/wave pattern.png" width="600" height="600"/>
+            </pattern>
+          </defs>
+          <circle cx="100" cy="100" r="100" fill="#C5101D"/>
+          <circle cx="100" cy="100" r="100" fill="url(#wavetex)" opacity=".5"/>
+          <circle cx="100" cy="100" r="92" fill="none" stroke="rgba(255,249,242,.65)" stroke-width="2"/>
+          <circle cx="100" cy="100" r="84" fill="none" stroke="rgba(74,5,10,.25)" stroke-width="1.5" stroke-dasharray="2 7"/>
+        </svg>
+      </div>
     </div>
   </div>
 </section>
@@ -326,52 +307,32 @@
       <div class="sandwich" aria-hidden="true">
         <!-- bottom bread -->
         <div class="layer layer--bottom" data-layer="bottom">
-          <svg viewBox="0 0 300 90" role="presentation">
-            <path d="M10 14h280v34c0 20-30 32-140 32S10 68 10 48z" fill="#F3D9AE"/>
-            <path d="M10 48c0 20 30 32 140 32s140-12 140-32" fill="none" stroke="#DDAE72" stroke-width="6"/>
-            <path d="M10 14h280v14H10z" fill="#E9C793"/>
-          </svg>
+          <img src="assets/elements/bread-bottom.png" alt="" width="201" height="107">
         </div>
         <!-- cream / filling -->
         <div class="layer layer--cream" data-layer="cream">
-          <svg viewBox="0 0 300 60" role="presentation">
-            <path d="M12 34c16-14 34 8 52-6s34 10 52-6 34 10 52-6 34 10 52-6 30 6 68-4v34H12z" fill="#FFFDF7"/>
-            <path d="M12 34c16-14 34 8 52-6s34 10 52-6 34 10 52-6 34 10 52-6 30 6 68-4" fill="none" stroke="#F2E7D6" stroke-width="3"/>
-          </svg>
+          <img class="cream-b" src="assets/elements/cream-bottom.png" alt="" width="178" height="79">
+          <img class="cream-t" src="assets/elements/cream-top.png" alt="" width="173" height="73">
         </div>
         <!-- fruit layer -->
         <div class="layer layer--fruit" data-layer="fruit">
-          <svg viewBox="0 0 300 70" role="presentation">
-            <g>
-              <ellipse cx="60" cy="36" rx="24" ry="20" fill="#E8455C"/>
-              <path d="M60 20v32M46 36h28" stroke="#FFF3F3" stroke-width="3" stroke-linecap="round"/>
-              <ellipse cx="150" cy="36" rx="24" ry="20" fill="#7CB342"/>
-              <circle cx="150" cy="36" r="7" fill="#F1F6E4"/>
-              <ellipse cx="240" cy="36" rx="24" ry="20" fill="#FFB300"/>
-              <path d="M240 22c8 6 8 22 0 28-8-6-8-22 0-28z" fill="#FFE082"/>
-            </g>
-          </svg>
+          <img src="assets/elements/fruit-middle1.png" alt="" width="81" height="57">
+          <img src="assets/elements/fruit-middle2.png" alt="" width="69" height="62">
+          <img src="assets/elements/fruit-middle3.png" alt="" width="69" height="62">
+          <img src="assets/elements/fruit-middle4.png" alt="" width="75" height="57">
         </div>
         <!-- top bread -->
         <div class="layer layer--top" data-layer="top">
-          <svg viewBox="0 0 300 90" role="presentation">
-            <path d="M10 78V46c0-24 30-38 140-38s140 14 140 38v32z" fill="#F3D9AE"/>
-            <path d="M10 46c0-24 30-38 140-38s140 14 140 38" fill="none" stroke="#DDAE72" stroke-width="6"/>
-            <path d="M10 64h280v14H10z" fill="#E9C793"/>
-          </svg>
+          <img src="assets/elements/bread-top.png" alt="" width="196" height="129">
         </div>
         <!-- garnish -->
         <div class="layer layer--garnish" data-layer="garnish">
-          <svg viewBox="0 0 340 200" role="presentation">
-            <g class="g g1"><path d="M40 30c10-12 26-4 24 10-2 12-18 20-26 12-8-8-6-14 2-22z" fill="#E8455C"/></g>
-            <g class="g g2"><circle cx="300" cy="52" r="8" fill="#7CB342"/></g>
-            <g class="g g3"><ellipse cx="288" cy="160" rx="12" ry="7" fill="#FFB300"/></g>
-            <g class="g g4"><circle cx="56" cy="168" r="5" fill="#4A050A" opacity=".55"/></g>
-            <g class="g g5"><circle cx="94" cy="182" r="4" fill="#4A050A" opacity=".4"/></g>
-            <g class="g g6"><circle cx="250" cy="24" r="4" fill="#4A050A" opacity=".4"/></g>
-            <g class="g g7"><path d="M160 8c6-7 16-3 15 6-1 8-11 12-16 7-5-5-4-9 1-13z" fill="#E88D8D"/></g>
-          </svg>
+          <img class="g g1" src="assets/elements/strawberry2.png" alt="" width="158" height="184">
+          <img class="g g2" src="assets/elements/kiwi1.png" alt="" width="241" height="213">
+          <img class="g g3" src="assets/elements/fruit-middle4.png" alt="" width="75" height="57">
         </div>
+        <!-- finished sando — final beat -->
+        <img class="sandwich__done" src="assets/elements/cream-sando-parallax.png" alt="" width="267" height="202">
       </div>
     </div>
   </div>
@@ -379,20 +340,11 @@
   <!-- PRODUCT CARDS -->
   <div class="wrap">
     <ul class="cards" data-stagger>
-      <li class="card" data-reveal="up" role="button" tabindex="0" aria-haspopup="dialog" data-cursor="View">
+      <li class="card" data-product="fruit" data-reveal="up" role="button" tabindex="0" aria-haspopup="dialog" data-cursor="View">
         <figure class="card__media">
-          <!-- REPLACE: assets/products/fruit-cream.jpg -->
-          <svg viewBox="0 0 400 300" role="img" aria-label="Illustration of a Japanese fruit cream sandwich">
-            <rect width="400" height="300" fill="#FFF1E4"/>
-            <g transform="translate(70 60)">
-              <rect x="0" y="0" width="260" height="54" rx="14" fill="#F3D9AE"/>
-              <path d="M6 70c22-12 44 8 66-4s44 8 66-4 44 8 66-4 40 6 56-4v34H6z" fill="#FFFDF7"/>
-              <ellipse cx="70" cy="130" rx="30" ry="24" fill="#E8455C"/>
-              <ellipse cx="160" cy="132" rx="28" ry="22" fill="#7CB342"/>
-              <ellipse cx="236" cy="130" rx="24" ry="20" fill="#FFB300"/>
-              <rect x="0" y="164" width="260" height="54" rx="14" fill="#F3D9AE"/>
-            </g>
-          </svg>
+          <img src="assets/products/fruit-sandwich-strawberry.png" loading="lazy"
+               alt="Japanese fruit cream sandwich with strawberry cross-sections on a plate"
+               width="762" height="630">
         </figure>
         <div class="card__body">
           <p class="card__jp">フルーツサンド</p>
@@ -401,33 +353,21 @@
           <p class="card__cta">View gallery</p>
         </div>
         <template class="card__tpl">
-          <figure class="pdp__ph">
-            <span>Photo placeholder 02</span>
-            <b>Japanese Fruit Cream Sandwich</b>
-            <i>Close-up cross-section — swap for assets/products/fruit-cream-2.jpg</i>
+          <figure>
+            <img src="assets/products/fruit-sandwich-banana.png" loading="lazy"
+                 alt="Fruit cream sandwich with banana slices" width="520" height="412">
           </figure>
-          <figure class="pdp__ph">
-            <span>Photo placeholder 03</span>
-            <b>Japanese Fruit Cream Sandwich</b>
-            <i>Plated serving shot — swap for assets/products/fruit-cream-3.jpg</i>
+          <figure>
+            <img src="assets/products/fruit-sandwich-kiwi.png" loading="lazy"
+                 alt="Fruit cream sandwich with kiwi slices" width="529" height="424">
           </figure>
         </template>
       </li>
 
-      <li class="card" data-reveal="up" role="button" tabindex="0" aria-haspopup="dialog" data-cursor="View">
+      <li class="card" data-product="egg" data-reveal="up" role="button" tabindex="0" aria-haspopup="dialog" data-cursor="View">
         <figure class="card__media">
-          <!-- REPLACE: assets/products/egg.jpg -->
-          <svg viewBox="0 0 400 300" role="img" aria-label="Illustration of a Japanese egg sandwich">
-            <rect width="400" height="300" fill="#FFF6E6"/>
-            <g transform="translate(70 60)">
-              <rect x="0" y="0" width="260" height="54" rx="14" fill="#F3D9AE"/>
-              <rect x="6" y="72" width="248" height="84" rx="18" fill="#FFE082"/>
-              <circle cx="70" cy="114" r="16" fill="#FFB300"/>
-              <circle cx="150" cy="114" r="16" fill="#FFB300"/>
-              <circle cx="230" cy="114" r="16" fill="#FFB300"/>
-              <rect x="0" y="164" width="260" height="54" rx="14" fill="#F3D9AE"/>
-            </g>
-          </svg>
+          <img src="assets/products/egg-sandwich.png" loading="lazy"
+               alt="Japanese egg sandwich halves on a plate" width="761" height="630">
         </figure>
         <div class="card__body">
           <p class="card__jp">卵サンド</p>
@@ -436,31 +376,25 @@
           <p class="card__cta">View gallery</p>
         </div>
         <template class="card__tpl">
-          <figure class="pdp__ph">
-            <span>Photo placeholder 02</span>
-            <b>Japanese Egg Sandwich</b>
-            <i>Close-up cross-section — swap for assets/products/egg-2.jpg</i>
+          <figure>
+            <img src="assets/products/egg-sandwich-variant1.png" loading="lazy"
+                 alt="Egg sandwich variant, stacked halves" width="271" height="207">
           </figure>
-          <figure class="pdp__ph">
-            <span>Photo placeholder 03</span>
-            <b>Japanese Egg Sandwich</b>
-            <i>Plated serving shot — swap for assets/products/egg-3.jpg</i>
+          <figure>
+            <img src="assets/products/egg-sandwich-truffle.png" loading="lazy"
+                 alt="Truffle egg sandwich variant" width="286" height="199">
+          </figure>
+          <figure>
+            <img src="assets/products/egg-sandwich-spicy.png" loading="lazy"
+                 alt="Spicy egg sandwich variant" width="271" height="214">
           </figure>
         </template>
       </li>
 
-      <li class="card" data-reveal="up" role="button" tabindex="0" aria-haspopup="dialog" data-cursor="View">
+      <li class="card" data-product="fried" data-reveal="up" role="button" tabindex="0" aria-haspopup="dialog" data-cursor="View">
         <figure class="card__media">
-          <!-- REPLACE: assets/products/fried-cream.jpg -->
-          <svg viewBox="0 0 400 300" role="img" aria-label="Illustration of a Japanese fried cream sandwich">
-            <rect width="400" height="300" fill="#FFEFD9"/>
-            <g transform="translate(70 60)">
-              <rect x="0" y="0" width="260" height="54" rx="14" fill="#E8B45C"/>
-              <path d="M6 74c22-10 44 8 66-4s44 8 66-4 44 8 66-4 40 6 56-4v40H6z" fill="#FFF3DF"/>
-              <rect x="0" y="164" width="260" height="54" rx="14" fill="#E8B45C"/>
-              <path d="M10 8h240" stroke="#D79B41" stroke-width="6" stroke-linecap="round" opacity=".7"/>
-            </g>
-          </svg>
+          <img src="assets/products/fried-cream-sandwich.png" loading="lazy"
+               alt="Japanese fried cream sandwich halves on a plate" width="675" height="630">
         </figure>
         <div class="card__body">
           <p class="card__jp">揚げサンド</p>
@@ -469,15 +403,17 @@
           <p class="card__cta">View gallery</p>
         </div>
         <template class="card__tpl">
-          <figure class="pdp__ph">
-            <span>Photo placeholder 02</span>
-            <b>Japanese Fried Cream Sandwich</b>
-            <i>Close-up cross-section — swap for assets/products/fried-cream-2.jpg</i>
+          <figure>
+            <img src="assets/products/fried-cream-plain.png" loading="lazy"
+                 alt="Plain fried cream sandwich" width="271" height="206">
           </figure>
-          <figure class="pdp__ph">
-            <span>Photo placeholder 03</span>
-            <b>Japanese Fried Cream Sandwich</b>
-            <i>Plated serving shot — swap for assets/products/fried-cream-3.jpg</i>
+          <figure>
+            <img src="assets/products/fried-cream-choco.png" loading="lazy"
+                 alt="Chocolate fried cream sandwich" width="263" height="214">
+          </figure>
+          <figure>
+            <img src="assets/products/fried-cream-cheese.png" loading="lazy"
+                 alt="Cheese fried cream sandwich" width="278" height="199">
           </figure>
         </template>
       </li>
@@ -488,70 +424,6 @@
 </section>
 
 <!-- B) BEVERAGES -->
-<section class="drinks" id="drinks" aria-labelledby="drinksTitle">
-  <div class="wrap">
-    <header class="sec-head sec-head--light">
-      <p class="eyebrow" data-reveal="up">Beverages</p>
-      <h2 class="sec-title" id="drinksTitle" data-reveal="up">Sip <em class="font-rushk">Along</em></h2>
-    </header>
-
-    <ul class="drink-grid" data-stagger>
-      <li class="drink" data-reveal="up">
-        <div class="cup" aria-hidden="true">
-          <svg viewBox="0 0 120 150" role="presentation">
-            <path class="cup__steam" d="M46 26c6-8-4-12 2-20M62 24c6-8-4-12 2-20M78 26c6-8-4-12 2-20" fill="none" stroke="#FFF9F2" stroke-width="4" stroke-linecap="round" opacity=".7"/>
-            <path class="cup__body" d="M24 44h72l-8 86a12 12 0 0 1-12 10H44a12 12 0 0 1-12-10z" fill="#FFF9F2"/>
-            <path class="cup__liquid" d="M30 66h60l-6 62a10 10 0 0 1-10 9H46a10 10 0 0 1-10-9z" fill="#7CB342"/>
-            <path class="cup__lid" d="M20 34h80v14H20z" fill="#E88D8D"/>
-          </svg>
-        </div>
-        <h3>Matcha Latte</h3>
-        <p>Smooth, earthy matcha with fresh milk.</p>
-      </li>
-
-      <li class="drink" data-reveal="up">
-        <div class="cup" aria-hidden="true">
-          <svg viewBox="0 0 120 150" role="presentation">
-            <path class="cup__steam" d="M46 26c6-8-4-12 2-20M62 24c6-8-4-12 2-20M78 26c6-8-4-12 2-20" fill="none" stroke="#FFF9F2" stroke-width="4" stroke-linecap="round" opacity=".7"/>
-            <path class="cup__body" d="M24 44h72l-8 86a12 12 0 0 1-12 10H44a12 12 0 0 1-12-10z" fill="#FFF9F2"/>
-            <path class="cup__liquid" d="M30 66h60l-6 62a10 10 0 0 1-10 9H46a10 10 0 0 1-10-9z" fill="#A9713B"/>
-            <path class="cup__lid" d="M20 34h80v14H20z" fill="#E88D8D"/>
-          </svg>
-        </div>
-        <h3>Hojicha Latte</h3>
-        <p>Roasted green tea, warm and toasty.</p>
-      </li>
-
-      <li class="drink" data-reveal="up">
-        <div class="cup" aria-hidden="true">
-          <svg viewBox="0 0 120 150" role="presentation">
-            <path class="cup__steam" d="M46 26c6-8-4-12 2-20M62 24c6-8-4-12 2-20M78 26c6-8-4-12 2-20" fill="none" stroke="#FFF9F2" stroke-width="4" stroke-linecap="round" opacity=".7"/>
-            <path class="cup__body" d="M24 44h72l-8 86a12 12 0 0 1-12 10H44a12 12 0 0 1-12-10z" fill="#FFF9F2"/>
-            <path class="cup__liquid" d="M30 66h60l-6 62a10 10 0 0 1-10 9H46a10 10 0 0 1-10-9z" fill="#C99A63"/>
-            <path class="cup__lid" d="M20 34h80v14H20z" fill="#E88D8D"/>
-          </svg>
-        </div>
-        <h3>Classic Milk Tea</h3>
-        <p>Creamy, subtly sweet — hot or cold.</p>
-      </li>
-
-      <li class="drink" data-reveal="up">
-        <div class="cup" aria-hidden="true">
-          <svg viewBox="0 0 120 150" role="presentation">
-            <path class="cup__steam" d="M46 26c6-8-4-12 2-20M62 24c6-8-4-12 2-20M78 26c6-8-4-12 2-20" fill="none" stroke="#FFF9F2" stroke-width="4" stroke-linecap="round" opacity=".7"/>
-            <path class="cup__body" d="M24 44h72l-8 86a12 12 0 0 1-12 10H44a12 12 0 0 1-12-10z" fill="#FFF9F2"/>
-            <path class="cup__liquid" d="M30 66h60l-6 62a10 10 0 0 1-10 9H46a10 10 0 0 1-10-9z" fill="#F5E6C8"/>
-            <path class="cup__stripe" d="M34 88h52M36 106h48" stroke="#8A5A2B" stroke-width="7" stroke-linecap="round" opacity=".8"/>
-            <path class="cup__lid" d="M20 34h80v14H20z" fill="#E88D8D"/>
-          </svg>
-        </div>
-        <h3>Brown Sugar Milk</h3>
-        <p>Brown sugar syrup stirred into cold milk.</p>
-      </li>
-    </ul>
-  </div>
-</section>
-
 </div><!-- /#about -->
 
 <!-- ============================================================
@@ -571,49 +443,30 @@
     <ol class="process" data-stagger>
       <li class="process__step" data-reveal="up">
         <span class="process__num">01</span>
-        <h3>Original Sketch</h3>
-        <figure class="process__fig process__fig--sketch">
-          <!-- REPLACE: assets/logo/sketch.jpg -->
-          <svg viewBox="0 0 320 240" role="img" aria-label="Hand-drawn sketch of the Tokyo Pocket logo mark">
-            <rect width="320" height="240" fill="#FFF9F2"/>
-            <g fill="none" stroke="#4A050A" stroke-width="3" stroke-linecap="round" opacity=".78" class="sketch-strokes">
-              <path d="M60 78h120M118 78v96"/>
-              <path d="M140 78h44a40 40 0 0 1 0 80h-44"/>
-              <path d="M78 56c14-8 44-10 74-4M96 44v18M140 42v20"/>
-              <path d="M150 132c14 6 26 14 34 24M148 146c12 6 22 12 30 20"/>
-              <path d="M64 196c26 10 70 12 116 2"/>
-              <path d="M226 66c14 4 22 16 20 30M232 116c10 6 14 16 12 26"/>
-            </g>
-            <text x="160" y="224" text-anchor="middle" font-family="Montserrat, sans-serif"
-                  font-size="15" font-weight="800" letter-spacing="4" fill="#9F111B">TOKYO POCKET</text>
-          </svg>
+        <h3>Logo Structure</h3>
+        <figure class="process__fig process__fig--struct">
+          <img src="assets/elements/logo structure.png" loading="lazy"
+               alt="Structural breakdown of the Tokyo Pocket logo — T and P letterforms and the torii mark built on a grid"
+               width="1704" height="735">
         </figure>
       </li>
 
       <li class="process__step" data-reveal="up">
         <span class="process__num">02</span>
-        <h3>Digital Refinement</h3>
-        <figure class="process__fig" id="refineFig">
-          <img src="assets/logo/primary.png" alt="Digital refinement of the Tokyo Pocket logo mark"
-               width="320" height="240" loading="lazy" class="refine-img">
+        <h3>Primary Logo</h3>
+        <figure class="process__fig final final--cream">
+          <img src="assets/logo/primary-svg.svg" alt="Tokyo Pocket primary logo"
+               width="348" height="461" loading="lazy">
         </figure>
       </li>
 
       <li class="process__step" data-reveal="up">
         <span class="process__num">03</span>
-        <h3>Final Logos</h3>
-        <div class="finals">
-          <figure class="final final--cream">
-            <img src="assets/logo/primary.png" alt="Tokyo Pocket primary logo on a cream background"
-                 width="240" height="160" loading="lazy">
-            <figcaption>Primary</figcaption>
-          </figure>
-          <figure class="final final--red">
-            <img src="assets/logo/secondary.png" alt="Tokyo Pocket secondary logo on a red background"
-                 width="300" height="150" loading="lazy">
-            <figcaption>Secondary</figcaption>
-          </figure>
-        </div>
+        <h3>Secondary Logo</h3>
+        <figure class="process__fig final final--cream">
+          <img src="assets/logo/secondary-svg.svg" alt="Tokyo Pocket secondary horizontal logo"
+               width="741" height="306" loading="lazy">
+        </figure>
       </li>
     </ol>
 
@@ -626,8 +479,6 @@
         <li><button class="swatch" type="button" data-hex="#C5101D" style="--sw:#C5101D"><span class="swatch__hex">#C5101D</span><span class="swatch__name">Signature Red</span><span class="swatch__role">Primary actions &amp; CTAs</span></button></li>
         <li><button class="swatch" type="button" data-hex="#E88D8D" style="--sw:#E88D8D"><span class="swatch__hex">#E88D8D</span><span class="swatch__name">Soft Pink</span><span class="swatch__role">Secondary accent</span></button></li>
         <li><button class="swatch" type="button" data-hex="#FFF9F2" style="--sw:#FFF9F2"><span class="swatch__hex">#FFF9F2</span><span class="swatch__name">Warm Cream</span><span class="swatch__role">Page background</span></button></li>
-        <li><button class="swatch" type="button" data-hex="#DEBF98" style="--sw:#DEBF98"><span class="swatch__hex">#DEBF98</span><span class="swatch__name">Sand</span><span class="swatch__role">Warm neutral &amp; texture</span></button></li>
-        <li><button class="swatch" type="button" data-hex="#222222" style="--sw:#222222"><span class="swatch__hex">#222222</span><span class="swatch__name">Charcoal</span><span class="swatch__role">Body text</span></button></li>
       </ul>
       <p class="palette-note">Click any swatch to copy its hex code.</p>
     </div>
@@ -636,60 +487,63 @@
     <div class="type-block" data-reveal="up">
       <h3 class="sub-title sub-title--sm">Typography</h3>
 
-      <ul class="typegrid">
-        <li class="typecard">
-          <p class="typecard__role">Headlines</p>
-          <p class="typecard__sample typecard__sample--display" aria-hidden="true">Aa</p>
-          <p class="typecard__family">Fredoka</p>
-          <p class="typecard__weights">400 · 500 · 600 · 700</p>
-          <p class="typecard__alpha">ABCDEFGHIJKLM<br>NOPQRSTUVWXYZ<br>0123456789</p>
-          <p class="typecard__use">Section titles, hero headline and pull quotes — round, friendly and warm.</p>
+      <ul class="specimens">
+        <li class="specimen specimen--fredoka">
+          <div class="specimen__glyph" aria-hidden="true">Aa</div>
+          <div class="specimen__main">
+            <p class="specimen__role">Headlines</p>
+            <p class="specimen__family">Fredoka <span class="specimen__weights">400 · 500 · 600 · 700</span></p>
+            <p class="specimen__line specimen__line--display">Welcome to Tokyo, in your pocket.</p>
+            <p class="specimen__ladder specimen__ladder--display" aria-hidden="true">
+              <span style="font-weight:400">Pocket</span><span style="font-weight:500">Pocket</span><span style="font-weight:600">Pocket</span><span style="font-weight:700">Pocket</span>
+            </p>
+            <p class="specimen__alpha">ABCDEFGHIJKLM NOPQRSTUVWXYZ 0123456789</p>
+            <p class="specimen__use">Section titles, hero headline and pull quotes — round, friendly and warm.</p>
+          </div>
         </li>
 
-        <li class="typecard">
-          <p class="typecard__role">Body &amp; UI</p>
-          <p class="typecard__sample typecard__sample--body" aria-hidden="true">Aa</p>
-          <p class="typecard__family">Montserrat</p>
-          <p class="typecard__weights">400 · 600 · 800</p>
-          <p class="typecard__alpha">ABCDEFGHIJKLM<br>NOPQRSTUVWXYZ<br>0123456789</p>
-          <p class="typecard__use">Paragraph copy, buttons, navigation and every small uppercase label.</p>
+        <li class="specimen specimen--montserrat">
+          <div class="specimen__glyph specimen__glyph--body" aria-hidden="true">Aa</div>
+          <div class="specimen__main">
+            <p class="specimen__role">Body &amp; UI</p>
+            <p class="specimen__family specimen__family--body">Montserrat <span class="specimen__weights">400 · 600 · 800</span></p>
+            <p class="specimen__line specimen__line--caps">Good Taste Fits Right Here</p>
+            <p class="specimen__ladder specimen__ladder--body" aria-hidden="true">
+              <span style="font-weight:400">Pocket</span><span style="font-weight:600">Pocket</span><span style="font-weight:800">Pocket</span>
+            </p>
+            <p class="specimen__alpha">ABCDEFGHIJKLM NOPQRSTUVWXYZ 0123456789</p>
+            <p class="specimen__use">Paragraph copy, buttons, navigation and every small uppercase label.</p>
+          </div>
         </li>
 
-        <li class="typecard typecard--brush">
-          <p class="typecard__role">Display accent</p>
-          <p class="typecard__sample typecard__sample--brush font-rushk" aria-hidden="true">Aa</p>
-          <p class="typecard__family">Rushk</p>
-          <p class="typecard__weights">400 · self-hosted .woff2</p>
-          <p class="typecard__alpha">ABCDEFGHIJKLM<br>NOPQRSTUVWXYZ<br>0123456789</p>
-          <p class="typecard__use">One painted word per heading — never for body copy or small text.</p>
+        <li class="specimen specimen--rushk">
+          <div class="specimen__glyph specimen__glyph--brush" aria-hidden="true">Sweet </br> Scape</div>
+          <div class="specimen__main">
+            <p class="specimen__role">Display accent</p>
+            <p class="specimen__family specimen__family--brush">Rushk <span class="specimen__weights">400 · self-hosted .woff2</span></p>
+            <p class="specimen__line specimen__line--brush">Tokyo Pocket</p>
+            <p class="specimen__ladder specimen__ladder--brush" aria-hidden="true">
+              <span>Good</span><span>Taste</span><span>Fits</span>
+            </p>
+            <p class="specimen__alpha">ABCDEFGHIJKLM NOPQRSTUVWXYZ 0123456789</p>
+          </div>
         </li>
       </ul>
 
-      <div class="hierarchy">
-        <div class="hier">
-          <span class="hier__tag">Section title</span>
-          <span class="hier__ex hier__ex--h2">Business <em class="font-rushk">Concept</em></span>
-          <span class="hier__spec">Fredoka 700 · clamp(2.2rem → 4.4rem)</span>
+      <!-- ============ TYPE TESTER ============ -->
+      <div class="tester">
+        <div class="tester__head">
+          <p class="tester__tag">Try it yourself</p>
+          <div class="tester__chips" role="group" aria-label="Choose a typeface">
+            <button class="tester__chip is-on" type="button" data-font="fredoka" aria-pressed="true">Fredoka</button>
+            <button class="tester__chip" type="button" data-font="montserrat" aria-pressed="false">Montserrat</button>
+            <button class="tester__chip" type="button" data-font="rushk" aria-pressed="false">Rushk</button>
+          </div>
         </div>
-        <div class="hier">
-          <span class="hier__tag">Sub-head</span>
-          <span class="hier__ex hier__ex--h3">Weekend Experiments</span>
-          <span class="hier__spec">Fredoka 600 · clamp(1.4rem → 2.1rem)</span>
-        </div>
-        <div class="hier">
-          <span class="hier__tag">Body copy</span>
-          <span class="hier__ex hier__ex--body">Fresh flavor travels with you, folded into one delicious portable bite.</span>
-          <span class="hier__spec">Montserrat 400 · 16–18px · line-height 1.6</span>
-        </div>
-        <div class="hier">
-          <span class="hier__tag">Label</span>
-          <span class="hier__ex hier__ex--label">Sample Products</span>
-          <span class="hier__spec">Montserrat 800 · 0.75rem · letter-spacing 0.28em</span>
-        </div>
+        <p class="tester__input tester__input--fredoka" contenteditable="true" spellcheck="false"
+           role="textbox" aria-label="Typography tester input">Type something &amp; switch fonts…</p>
       </div>
 
-      <p class="type-block__note">Logotype: <strong>Montserrat ExtraBold</strong> with wide tracking ·
-        Headlines: <strong>Fredoka</strong> · Display accent: <strong>Rushk</strong></p>
     </div>
   </div>
 </section>
@@ -822,13 +676,8 @@
   </div>
 
   <div class="wrap footer__inner">
-    <p class="footer__heroline" data-reveal="fade">Welcome to Tokyo, in your pocket.</p>
-    <h2 class="footer__thanks" data-split>
-      <span class="line"><span class="line__in">Thank You</span></span>
-    </h2>
-    <p class="footer__tag">“Good Taste Fits Right Here.”</p>
 
-    <img class="footer__logo" src="assets/logo/secondary.png" alt="Tokyo Pocket logo" width="300" height="150" loading="lazy">
+    <img class="footer__logo" src="assets/logo/secondary-svg.svg" alt="Tokyo Pocket logo" width="741" height="306" loading="lazy">
 
     <ul class="footer__names">
       <li>Brandon Jake Dela Cruz</li>
@@ -852,22 +701,41 @@
 <!-- === PRODUCT DIALOG === -->
 <div class="pdp" id="pdp" hidden role="dialog" aria-modal="true" aria-labelledby="pdpTitle">
   <div class="pdp__panel">
-    <button class="pdp__close" id="pdpClose" type="button" aria-label="Close product gallery">✕</button>
+
+    <div class="pdp__bg" aria-hidden="true"><span class="pdp__bg-tex"></span></div>
+
+    <div class="pdp__circle-hold" aria-hidden="true">
+      <header class="pdp__circle">
+        <p class="pdp__cat">Sandwich</p>
+        <span class="pdp__cat-dot"></span>
+      </header>
+    </div>
+
+    <div class="pdp__floats" aria-hidden="true">
+      <img class="pdp__float pdp__float--berry-tr is-active" data-depth="1.2"
+           src="assets/elements/strawberry1.png" alt="" width="326" height="326">
+      <img class="pdp__float pdp__float--berry-bl is-active" data-depth="1.35"
+           src="assets/elements/strawberry3.png" alt="" width="312" height="319">
+      <img class="pdp__float pdp__float--berry-br is-active" data-depth="1.3"
+           src="assets/elements/strawberry2.png" alt="" width="158" height="184">
+      <img class="pdp__float pdp__float--sando is-active" data-depth=".85"
+           src="assets/elements/cream-sando-parallax.png" alt="" width="267" height="202">
+    </div>
 
     <div class="pdp__stage">
       <div class="pdp__track" id="pdpTrack"></div>
-      <button class="pdp__nav pdp__nav--prev" id="pdpPrev" type="button" aria-label="Previous image">‹</button>
-      <button class="pdp__nav pdp__nav--next" id="pdpNext" type="button" aria-label="Next image">›</button>
-      <div class="pdp__dots" id="pdpDots"></div>
-      <div class="pdp__bar" aria-hidden="true"><i id="pdpBar"></i></div>
     </div>
 
-    <div class="pdp__info">
-      <p class="card__jp" id="pdpJp"></p>
-      <h3 class="pdp__title" id="pdpTitle"></h3>
-      <p class="pdp__desc" id="pdpDesc"></p>
-      <p class="pdp__note">Sample product — more variants available in store.</p>
+    <div class="pdp__info-hold">
+      <footer class="pdp__info">
+        <h3 class="pdp__title" id="pdpTitle"></h3>
+        <p class="pdp__desc" id="pdpDesc"></p>
+        <div class="pdp__dots" id="pdpDots"></div>
+        <div class="pdp__bar" aria-hidden="true"><i id="pdpBar"></i></div>
+      </footer>
     </div>
+
+    <button class="pdp__close" id="pdpClose" type="button" aria-label="Close product gallery">✕</button>
   </div>
 </div>
 
